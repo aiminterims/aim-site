@@ -1,0 +1,22 @@
+name: Обновить мероприятия на сайте
+on:
+  push:
+    paths: ['data/events.xlsx', 'tools/build_events.py']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install openpyxl
+      - run: python tools/build_events.py
+      - name: Сохранить изменения
+        run: |
+          git config user.name "aim-site-bot"
+          git config user.email "bot@aim-interims.ru"
+          git add index.html
+          git diff --cached --quiet || (git commit -m "Мероприятия обновлены из таблицы" && git push)
