@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Бизнес-завтрак АИМ · 19 ноября</title>
+<meta name="description" content="Бесплатный бизнес-завтрак в Москве 19 ноября: интерим-менеджмент как следующая ступень карьерной лестницы. Только 15 человек.">
+<link rel="icon" href="../assets/favicon.png?v=3" type="image/png"><link rel="shortcut icon" href="../favicon.ico?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Manrope:wght@400;500;700&display=swap">
+<style>
+/* Layout: тёмная «графитовая» страница бренда АИМ — герой с датой, большие портреты спикеров, программа, адрес, форма записи */
+:root{
+  --bg:#232325; --surface:#2E2E31; --surface-2:#38383C; --line:#46464B;
+  --fg:#F4F2EE; --muted:#B4B2AE; --accent:#E8A33D; --accent-ink:#1E1E20; --ok:#7BC79A; --err:#F08A7A;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Manrope","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.55;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.08;letter-spacing:-0.01em}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+section{padding-block:56px}
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.top img{width:150px;height:auto}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px;white-space:nowrap}
+/* hero */
+.hero{display:block;max-width:760px;padding-block:28px 40px}
+.hero h1{font-size:clamp(38px,6.4vw,80px);font-weight:800}
+.hero h1 span{color:var(--accent);display:block}
+.hero .lead{font-size:clamp(18px,2vw,22px);color:var(--muted);margin:22px 0 28px;max-width:34ch}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:28px}
+.fact{background:var(--surface);border-radius:14px;padding:14px 16px;min-width:0}
+.fact b{display:block;font-size:19px;font-variant-numeric:tabular-nums}
+.fact small{color:var(--muted);font-size:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:18px;border:0;border-radius:999px;padding:16px 30px;cursor:pointer;text-decoration:none;font-family:var(--body)}
+.btn:hover{filter:brightness(1.06)}
+.btn:focus-visible,input:focus-visible,.ghost:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
+.seats{margin-left:14px;color:var(--muted);font-size:15px}
+/* speakers */
+.speakers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:32px}
+.spk{background:var(--surface);border-radius:22px;overflow:hidden;min-width:0}
+.spk img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 25%}
+.spk .t{padding:24px 26px 28px}
+.spk h3{font-size:26px;margin-bottom:6px}
+.spk .role{color:var(--accent);font-weight:700;margin-bottom:14px}
+.spk ul{margin:0;padding-left:20px;color:var(--muted)}
+.spk li+li{margin-top:6px}
+/* program */
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+h2{font-size:clamp(28px,4vw,42px);margin:10px 0 26px}
+.list{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.list li{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border-radius:14px;padding:16px 18px}
+.list li::before{content:"";flex:0 0 12px;height:12px;margin-top:8px;border-radius:3px;background:var(--accent)}
+.quote{margin-top:22px;color:var(--muted);font-size:16px}
+/* place */
+.place{display:grid;grid-template-columns:1fr 1fr;gap:28px;background:var(--surface);border-radius:22px;padding:32px}
+.place dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 20px}
+.place dt{color:var(--muted)}
+.place dd{margin:0;font-weight:700}
+.place .big{font-family:var(--display);font-size:clamp(34px,5vw,56px);color:var(--accent);line-height:1}
+/* form */
+.form-card{background:var(--surface);border-radius:22px;padding:34px;display:grid;grid-template-columns:.9fr 1.1fr;gap:36px}
+footer{padding-block:34px 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media (max-width:860px){
+  .hero,.cols,.place,.form-card{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .speakers,.facts{grid-template-columns:1fr}
+  .top .chip{font-size:12px;padding:6px 12px}
+  .place,.form-card{padding:22px}
+  section{padding-block:40px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero h1,.hero .lead,.facts{animation:rise .7s ease both}
+  .hero .lead{animation-delay:.08s}.facts{animation-delay:.16s}
+  @keyframes rise{from{transform:translateY(14px)}to{transform:none}}
+}
+
+/* form */
+.reg{display:grid;gap:14px;max-width:520px}
+.reg label{display:grid;gap:6px;font-weight:700;font-size:15px}
+.reg input{font:inherit;font-weight:500;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 16px;width:100%}
+.reg input::placeholder{color:#7d7b78}
+.reg .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.reg .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+.reg .note{color:var(--muted);font-size:13px;line-height:1.45}
+.reg .err{color:var(--err);font-size:14px;min-height:1em}
+.reg .btn[disabled]{opacity:.6;cursor:wait}
+.done{display:none;gap:14px;align-content:start}
+.done h3{font-size:26px}
+.done p{margin:0;color:var(--muted)}
+.form-card.sent .reg{display:none}
+.form-card.sent .done{display:grid}
+@media (max-width:560px){.reg .two{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a href="/"><img src="../assets/logo.png" alt="Ассоциация Интерим Менеджеров"></a>
+    <span class="chip">Бесплатно · 15 мест</span>
+  </header>
+
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Бизнес-завтрак · Москва · 19 ноября</div>
+      <h1 style="margin-top:14px">Интерим <span>как следующая ступень карьерной лестницы</span></h1>
+      <p class="lead">Живой разговор за одним столом для топ-менеджеров, которые переросли найм. Только 15 человек.</p>
+      <div class="facts">
+        <div class="fact"><b>19 ноября, 10:00</b><small>четверг · 1,5 часа</small></div>
+        <div class="fact"><b>River Side</b><small>Фрунзенская наб. 32, Москва</small></div>
+      </div>
+      <a class="btn" href="#register">Записаться</a><span class="seats">всего 15 мест</span>
+    </div>
+  </div>
+</div>
+<section id="speakers">
+  <div class="wrap">
+    <div class="eyebrow">Спикеры</div>
+    <h2>С кем вы проведёте утро</h2>
+    <div class="speakers">
+      <article class="spk">
+        <img src="andrey.jpg" alt="Андрей Фомин">
+        <div class="t">
+          <h3>Андрей Фомин</h3>
+          <div class="role">Основатель Ассоциации Интерим Менеджеров и Школы интерим-менеджеров</div>
+          <ul>
+            <li>22 года топ-менеджером в Magna, Visteon, Motherson, Boge</li>
+            <li>Управлял бизнесом с выручкой 100+ млрд ₽</li>
+            <li>Интерим-проекты в России, Словакии, Германии, Сербии</li>
+          </ul>
+        </div>
+      </article>
+      <article class="spk">
+        <img src="ilgiz.webp" alt="Ильгиз Валинуров" style="object-position:50% 6%">
+        <div class="t">
+          <h3>Ильгиз Валинуров</h3>
+          <div class="role">Хедхантер и карьерный консультант топ-менеджеров</div>
+          <ul>
+            <li>30 000 собеседований с руководителями</li>
+            <li>Автор 12 книг о поиске персонала и карьере</li>
+            <li>Трижды карьерный консультант года, преподаватель MBA</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="program">
+  <div class="wrap cols">
+    <div>
+      <div class="eyebrow">Программа</div>
+      <h2>За 1,5 часа разберём</h2>
+      <ul class="list">
+        <li>Чем интерим отличается от штатного топ-менеджера и почему собственники платят за результат, а не за должность</li>
+        <li>Как переупаковать свой опыт, не уходя из найма прямо сейчас</li>
+        <li>Какие задачи компании отдают интеримам сегодня</li>
+        <li>Живой разговор с Ильгизом Валинуровым: спросите то, о чём не спросишь на собеседовании</li>
+      </ul>
+    </div>
+    <div>
+      <div class="eyebrow">Для кого</div>
+      <h2>Будет полезно, если вы</h2>
+      <ul class="list">
+        <li>Топ-менеджер, который перерос найм и слышит «оверквалифайд»</li>
+        <li>Руководитель 40+ и упёрлись в потолок зарплаты</li>
+        <li>На паузе в карьере и выбираете следующий шаг</li>
+        <li>Эксперт или консультант с управленческим опытом и ищете точку роста</li>
+      </ul>
+      <p class="quote">Без презентаций на сто слайдов: один стол, пятнадцать человек, кофе и честный разговор.</p>
+    </div>
+  </div>
+</section>
+
+<section id="place">
+  <div class="wrap">
+    <div class="place">
+      <div>
+        <div class="eyebrow">Когда и где</div>
+        <p class="big" style="margin:14px 0 8px">19 ноября</p>
+        <p style="margin:0;font-size:20px;font-weight:700">четверг, 10:00–11:30</p>
+      </div>
+      <dl>
+        <dt>Место</dt><dd>Ресторан «River Side»</dd>
+        <dt>Адрес</dt><dd>Москва, Фрунзенская набережная, 32</dd>
+        <dt>Формат</dt><dd>Бизнес-завтрак, 1,5 часа</dd>
+        <dt>Участие</dt><dd>Бесплатно, максимум 15 человек</dd>
+        <dt>Карта</dt><dd><a href="https://yandex.ru/maps/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%A4%D1%80%D1%83%D0%BD%D0%B7%D0%B5%D0%BD%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BD%D0%B0%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F%2032" target="_blank" rel="noopener">Открыть в Яндекс Картах</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="register">
+  <div class="wrap">
+    <div class="form-card">
+      <div>
+        <div class="eyebrow">Запись</div>
+        <h2>Забронируйте место</h2>
+        <p style="color:var(--muted);margin:0">Мест всего 15. Заполнение занимает минуту. После записи вы получите подтверждение в Telegram, а накануне встречи мы напомним о ней.</p>
+      </div>
+      <div>
+        <form class="reg" id="regform" novalidate>
+          <div class="two">
+            <label>Имя<input name="name" autocomplete="given-name" required maxlength="60"></label>
+            <label>Фамилия<input name="surname" autocomplete="family-name" required maxlength="60"></label>
+          </div>
+          <label>Телефон<input name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required maxlength="30"></label>
+          <label>Email<input name="email" type="email" autocomplete="email" placeholder="name@company.ru" required maxlength="100"></label>
+          <label>Аккаунт в Telegram<input name="tg" placeholder="@username" required maxlength="60"></label>
+          <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="err" id="err" role="alert"></div>
+          <button class="btn" type="submit" id="go">Записаться</button>
+          <p class="note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных для организации мероприятия.</p>
+        </form>
+        <div class="done" id="done">
+          <h3>Вы записаны ✅</h3>
+          <p>Остался один шаг: нажмите кнопку ниже и в Telegram нажмите Start. Бот пришлёт подтверждение и накануне встречи напомнит о ней.</p>
+          <a class="btn" id="tglink" href="https://t.me/Andrey_Fomin_TeamBot" target="_blank" rel="noopener">Получить подтверждение в Telegram</a>
+          <p>19 ноября, четверг, 10:00 · ресторан «River Side», Москва, Фрунзенская наб. 32</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Ассоциация Интерим Менеджеров · <a href="https://t.me/aim_interims" target="_blank" rel="noopener">t.me/aim_interims</a></span>
+    <span>Вопросы: Telegram @AndreyAFomin · af@aiminterims.ru</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var HOOK='https://hook.eu1.make.com/rj64s6j0g3bj2konkv593ktl85pwc7bc';
+  var BOT='https://t.me/Andrey_Fomin_TeamBot';
+  var f=document.getElementById('regform'),err=document.getElementById('err'),go=document.getElementById('go');
+  function rid(){var a='abcdefghijklmnopqrstuvwxyz0123456789',s='';for(var i=0;i<10;i++)s+=a[Math.floor(Math.random()*a.length)];return s}
+  function normTg(v){v=(v||'').trim().replace(/^https?:\/\/(t\.me|telegram\.me)\//i,'').replace(/^@/,'').split('?')[0].replace(/\/$/,'');return v?'@'+v:''}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();err.textContent='';
+    var d=new FormData(f);if(d.get('website'))return;
+    var v={name:(d.get('name')||'').trim(),surname:(d.get('surname')||'').trim(),phone:(d.get('phone')||'').trim(),email:(d.get('email')||'').trim(),tg:normTg(d.get('tg'))};
+    if(!v.name||!v.surname||!v.phone||!v.email||!v.tg){err.textContent='Заполните все поля.';return}
+    if(v.phone.replace(/\D/g,'').length<10){err.textContent='Проверьте номер телефона.';return}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)){err.textContent='Проверьте email.';return}
+    if(!/^@[A-Za-z0-9_]{4,32}$/.test(v.tg)){err.textContent='Укажите аккаунт Telegram в формате @username.';return}
+    v.rid=rid();go.disabled=true;go.textContent='Отправляем…';
+    var body=new URLSearchParams(v).toString();
+    fetch(HOOK,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(function(){
+      document.getElementById('tglink').href=BOT+'?start=bf_'+v.rid;
+      document.querySelector('.form-card').classList.add('sent');
+    }).catch(function(){go.disabled=false;go.textContent='Записаться';err.textContent='Не удалось отправить. Проверьте интернет или напишите @AndreyAFomin.'});
+  });
+})();
+</script>
+</body>
+</html>
