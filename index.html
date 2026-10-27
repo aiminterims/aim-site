@@ -98,12 +98,12 @@ header{position:sticky;top:0;z-index:20;background:rgba(35,35,37,.92);backdrop-f
 /* events */
 .events{display:flex;flex-direction:column;gap:10px;margin-top:26px}
 .ev{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:8px 18px;padding:14px 18px}
-.ev .when{display:flex;flex-wrap:wrap;gap:6px;min-width:150px}
+.ev .when{display:flex;flex-wrap:wrap;gap:6px;width:236px}
 .ev .pill{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:var(--surface2);color:var(--fg)}
 .ev .pill.a{background:var(--accent);color:var(--accent-ink)}
 .ev h3{font-size:15px;line-height:1.3;font-family:var(--body);font-weight:700}
 .ev .btn{align-self:center;padding:8px 14px;font-size:13px;white-space:nowrap}
-@media (max-width:640px){.ev{grid-template-columns:1fr;padding:14px}.ev .when{min-width:0}.ev .btn{justify-self:start}}
+@media (max-width:640px){.ev{grid-template-columns:1fr;padding:14px}.ev .when{width:auto}.ev .btn{justify-self:start}}
 .hero h1 em{font-style:normal;color:var(--accent)}
 .hero .lead{margin:24px 0 34px}
 .cta-row{display:flex;flex-wrap:wrap;gap:14px}
@@ -312,12 +312,12 @@ footer img{height:36px;width:auto}
       </div>
       <div class="card ev reveal">
         <div class="when"><span class="pill a">27 ноября</span><span class="pill">Санкт-Петербург</span></div>
-        <h3>Форум РБ Про &quot;Базовые стратегии&quot;</h3>
+        <h3>Форум АРБ Про &quot;Базовые стратегии&quot;</h3>
         <a class="btn" href="https://t.me/AndreyAFomin" target="_blank" rel="noopener">Узнать подробнее</a>
       </div>
       <div class="card ev reveal">
         <div class="when"><span class="pill a">27 ноября</span><span class="pill">Санкт-Петербург</span></div>
-        <h3>Квартирник после форума РБ Про &quot;Базовые стратегии&quot;. О главном без камер</h3>
+        <h3>Квартирник после форума АРБ Про &quot;Базовые стратегии&quot;. О главном без камер</h3>
         <a class="btn" href="https://t.me/AndreyAFomin" target="_blank" rel="noopener">Узнать подробнее</a>
       </div>
       <!--/EVENTS-->
