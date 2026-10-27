@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Андрей Фомин — интерим-управляющий для собственников</title>
+<meta name="description" content="Андрей Фомин: 22 года в топ-менеджменте международных корпораций, основатель Ассоциации Интерим Менеджеров. Интерим-управление, антикризис, запуски и интеграция бизнеса.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/favicon.png?v=3" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Jost:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap">
+<style>
+:root{--cream-50:#FDFAF5;--cream-100:#F7F2E8;--cream-200:#EDE5D4;--cream-300:#DDD3BE;--dark-900:#17161F;--dark-800:#252333;--dark-700:#3A3849;--dark-500:#6C6A7C;--dark-300:#A8A6B5;--gold-700:#9A7220;--gold-600:#B8892A;--gold-500:#CDA040;--gold-300:#E2C47A;
+--ff-display:'Playfair Display',Georgia,serif;--ff-body:'Jost',system-ui,sans-serif;--ff-accent:'Cormorant Garamond',Georgia,serif;--max:1240px;color-scheme:light}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream-50);color:var(--dark-700);font-family:var(--ff-body);font-weight:300;font-size:18px;line-height:1.65;padding-inline:0}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:max(20px,env(safe-area-inset-left,0px)) }
+h1,h2,h3{font-family:var(--ff-display);font-weight:600;line-height:1.12;margin:0;color:var(--dark-900);text-wrap:balance}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-600);font-weight:500;margin-bottom:18px;display:block}
+header{position:fixed;inset:0 0 auto;z-index:20;background:rgba(23,22,31,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(205,160,64,.35)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:80px}
+.brand{font-family:var(--ff-display);color:#fff;font-size:24px;font-weight:600;line-height:1.1}
+.brand small{display:block;font-family:var(--ff-body);font-weight:400;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--dark-300);margin-top:4px}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav ul a{color:var(--dark-300);font-size:15px;font-weight:400;transition:.28s}.nav ul a:hover{color:var(--gold-300)}
+.btn{display:inline-block;padding:15px 30px;border:1px solid var(--gold-500);background:var(--gold-500);color:var(--dark-900);font-weight:500;font-size:15px;letter-spacing:.06em;transition:.28s;border-radius:4px}
+.btn:hover{background:var(--gold-300)}.btn.ghost{background:transparent;color:#fff}.btn.ghost:hover{background:rgba(205,160,64,.15)}
+.nav .btn{padding:10px 20px}
+.hero{background:var(--dark-900);color:#fff;padding-top:80px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;align-items:end;gap:20px;min-height:760px}
+.hero .txt{padding:90px 0 100px}
+.hero h1{color:#fff;font-size:clamp(44px,6.4vw,84px)}.hero h1 em{font-style:normal;color:var(--gold-300);display:block}
+.hero .sub{font-family:var(--ff-accent);font-size:clamp(24px,2.6vw,34px);color:var(--gold-300);font-style:italic;margin:22px 0 18px}
+.hero p{color:var(--dark-300);max-width:520px;margin:0 0 34px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero .ph{align-self:stretch;position:relative;min-height:420px}
+.hero .ph img{position:absolute;right:0;bottom:0;width:100%;max-width:560px;height:100%;object-fit:cover;object-position:50% 20%;-webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent);mask-image:linear-gradient(to bottom,#000 70%,transparent)}
+section{padding:110px 0}
+.alt{background:var(--cream-100)}.dark{background:var(--dark-900);color:var(--dark-300)}.dark h2,.dark h3{color:#fff}
+h2{font-size:clamp(32px,4vw,52px);margin-bottom:22px}
+.lead{max-width:760px;color:var(--dark-500)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:48px}
+.list{list-style:none;margin:0;padding:0}.list li{padding:16px 0 16px 34px;border-bottom:1px solid var(--cream-300);position:relative}
+.list li::before{content:"";position:absolute;left:0;top:30px;width:16px;height:1px;background:var(--gold-600)}
+.list h4{margin:0 0 14px;font:500 13px var(--ff-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-700)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{border-top:1px solid rgba(205,160,64,.5);padding-top:22px}
+.stat b{display:block;font-family:var(--ff-display);font-size:clamp(38px,4.4vw,60px);color:var(--gold-300);font-weight:600;line-height:1}
+.stat span{display:block;margin-top:12px;font-size:15px;color:var(--dark-300)}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}
+.about img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;border-radius:8px;box-shadow:0 24px 80px rgba(23,22,31,.18)}
+.about p{color:var(--dark-500)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+.card{background:#fff;border:1px solid var(--cream-200);border-radius:8px;padding:34px 30px;box-shadow:0 2px 12px rgba(23,22,31,.07);transition:.28s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 40px rgba(23,22,31,.12)}
+.card .n{font-family:var(--ff-accent);font-size:44px;color:var(--gold-500);line-height:1;margin-bottom:12px}
+.card h3{font-size:23px;margin-bottom:12px}.card p{margin:0 0 20px;font-size:16px;color:var(--dark-500);flex:1}
+.card a{color:var(--gold-700);font-weight:500;font-size:15px}.card a:hover{color:var(--gold-500)}
+.approach{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:46px}
+.approach div{border-left:1px solid var(--gold-500);padding-left:24px}.approach h3{font-size:22px;color:#fff;margin-bottom:10px}
+.approach p{margin:0;font-size:16px}
+.media{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}
+.media a{background:#fff;border:1px solid var(--cream-200);border-radius:8px;padding:28px;transition:.28s;display:block}
+.media a:hover{border-color:var(--gold-500)}.media b{display:block;font-family:var(--ff-display);font-size:21px;color:var(--dark-900);margin-bottom:8px}
+.media span{font-size:15px;color:var(--dark-500)}
+.cta-sec{text-align:center;background:var(--dark-900);color:var(--dark-300)}.cta-sec h2{color:#fff;margin-inline:auto;max-width:760px}
+.cta-sec .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.contacts{margin-top:30px;color:var(--dark-300);font-size:16px}
+footer{background:#100F16;color:var(--dark-500);font-size:14px;padding:50px 0 calc(40px + env(safe-area-inset-bottom,0px))}
+footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}footer a{color:var(--dark-300)}footer a:hover{color:var(--gold-300)}
+footer .soc{display:flex;gap:20px;flex-wrap:wrap}
+@media(max-width:900px){.nav ul,.nav .btn{display:none}.hero .wrap,.two,.about,.stats,.cards,.approach,.media{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.hero .txt{padding:50px 0 20px}.hero .ph{min-height:380px}section{padding:72px 0}body{font-size:17px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+ <a class="brand" href="#top">Андрей Фомин<small>Интерим-управление</small></a>
+ <ul><li><a href="#help">Чем помогаю</a></li><li><a href="#about">Обо мне</a></li><li><a href="#services">Услуги</a></li><li><a href="#media">Медиа</a></li><li><a href="#contacts">Контакты</a></li><li><a href="../">АИМ</a></li></ul>
+ <a class="btn" href="#contacts">Обсудить задачу</a>
+</div></header>
+<main id="top">
+<div class="hero"><div class="wrap">
+ <div class="txt">
+  <span class="eyebrow">Интерим-управление</span>
+  <h1>Андрей <em>Фомин</em></h1>
+  <div class="sub">Интерим-управляющий для собственников и CEO</div>
+  <p>Захожу в компанию на конкретную задачу и отвечаю за результат, а не за должность: антикризис, запуск, интеграция, продажа бизнеса. 22 года в топ-менеджменте международных корпораций.</p>
+  <div class="cta"><a class="btn" href="#contacts">Обсудить задачу</a><a class="btn ghost" href="#services">Услуги</a></div>
+ </div>
+ <div class="ph"><img src="portrait.jpg" alt="Андрей Фомин"></div>
+</div></div>
+
+<section id="help"><div class="wrap">
+ <span class="eyebrow">Чем помогаю</span>
+ <h2>Сильный руководитель на проект, а не через полгода поиска</h2>
+ <p class="lead">Собственнику нужен человек, который уже проходил такую ситуацию десятки раз и готов выйти в понедельник. Фиксируем цель, сроки и KPI до старта, по результату передаю дела преемнику.</p>
+ <div class="two">
+  <div><div class="list"><h4>С чем работаем</h4><ul class="list" style="margin:0"><li>Убытки растут, прогнозы команды не сбываются</li><li>Компания выросла, а система управления нет</li><li>Прибыль падает, команда блокирует изменения</li><li>Топ ушёл в пятницу, замена нужна с понедельника</li><li>Новый актив, завод или рынок, который надо запустить</li></ul></div></div>
+  <div><div class="list"><h4>Что вы получаете</h4><ul class="list" style="margin:0"><li>Выход на проект за 72 часа вместо 3–6 месяцев поиска</li><li>Цели и KPI, зафиксированные в контракте до старта</li><li>Диагностику и план в первые недели работы</li><li>Преемника и порядок передачи дел в конце проекта</li></ul></div></div>
+ </div>
+</div></section>
+
+<section class="dark" style="padding:80px 0"><div class="wrap"><div class="stats">
+ <div class="stat"><b>22</b><span>года топ-менеджером в Magna, Visteon, Motherson, Boge</span></div>
+ <div class="stat"><b>100+</b><span>млрд ₽ выручки бизнеса под управлением</span></div>
+ <div class="stat"><b>4</b><span>страны интерим-проектов: Россия, Словакия, Германия, Сербия</span></div>
+ <div class="stat"><b>72 ч</b><span>от звонка собственника до выхода на проект</span></div>
+</div></div></section>
+
+<section id="about"><div class="wrap about">
+ <img src="about.jpg" alt="Андрей Фомин">
+ <div>
+  <span class="eyebrow">Обо мне</span>
+  <h2>Практик, который ушёл из найма в интерим-проекты</h2>
+  <p>22 года я управлял бизнесом в международных автомобильных корпорациях, затем осознанно ушёл из найма в интерим-проекты. Вёл проекты в России, Словакии, Германии и Сербии.</p>
+  <p>Основал Ассоциацию Интерим Менеджеров и первую в России Школу интерим-менеджеров. Веду подкаст про интеримов и канал в Telegram.</p>
+  <a class="btn" href="../">Об Ассоциации</a>
+ </div>
+</div></section>
+
+<section class="dark"><div class="wrap">
+ <span class="eyebrow">Мой подход</span>
+ <h2>Три уровня работы</h2>
+ <div class="approach">
+  <div><h3>Первое лицо</h3><p>Работаю с собственником или CEO напрямую: задача, ограничения, критерии успеха и честный разговор о том, что реально мешает.</p></div>
+  <div><h3>Система управления</h3><p>Выстраиваю структуру, ответственность и ритм решений, чтобы результат не зависел от одного человека.</p></div>
+  <div><h3>Команда топ-менеджеров</h3><p>Усиливаю команду, при необходимости подключаю экспертов Ассоциации, в конце готовлю преемника.</p></div>
+ </div>
+</div></section>
+
+<section class="alt" id="services"><div class="wrap">
+ <span class="eyebrow">Услуги</span>
+ <h2>Чем могу быть полезен</h2>
+ <div class="cards">
+  <div class="card"><div class="n">01</div><h3>Интерим-управление</h3><p>Руководство компанией или функцией на срок проекта с ответственностью за KPI.</p><a href="#contacts">Подробнее →</a></div>
+  <div class="card"><div class="n">02</div><h3>Антикризис</h3><p>Стабилизация денег, команды и операционки, когда убытки растут и прогнозы не сбываются.</p><a href="#contacts">Подробнее →</a></div>
+  <div class="card"><div class="n">03</div><h3>Запуск и стройка</h3><p>Новый актив, перенос завода, выход в другие страны: без срыва поставок и раздутого бюджета.</p><a href="#contacts">Подробнее →</a></div>
+  <div class="card"><div class="n">04</div><h3>Интеграция и сделки</h3><p>Интеграция купленного актива и подготовка бизнеса к продаже, которая повышает цену сделки.</p><a href="#contacts">Подробнее →</a></div>
+  <div class="card"><div class="n">05</div><h3>Подбор интерима</h3><p>Подберу 2–3 кандидатов из пула Ассоциации под вашу задачу за 72 часа.</p><a href="../#owners">Подробнее →</a></div>
+  <div class="card"><div class="n">06</div><h3>Школа интерим-менеджеров</h3><p>За 7 недель переупакуем опыт топ-менеджера и откроем доступ к проектам АИМ.</p><a href="../school/">Подробнее →</a></div>
+ </div>
+</div></section>
+
+<section id="media"><div class="wrap">
+ <span class="eyebrow">Медиа</span>
+ <h2>Подкаст, видео и канал</h2>
+ <p class="lead">Разбираю кейсы интерим-проектов, говорю с собственниками и топ-менеджерами о том, как работает интерим в России.</p>
+ <div class="media">
+  <a href="https://youtu.be/ZNSFPjgcCBs" target="_blank" rel="noopener"><b>Подкаст про интеримов</b><span>Смотреть на YouTube →</span></a>
+  <a href="https://t.me/aim_interims" target="_blank" rel="noopener"><b>Telegram-канал АИМ</b><span>Кейсы, анонсы и разборы →</span></a>
+  <a href="https://max.ru/channel_aim_interims" target="_blank" rel="noopener"><b>Канал АИМ в Max</b><span>Те же материалы в Max →</span></a>
+ </div>
+</div></section>
+
+<section class="cta-sec" id="contacts"><div class="wrap">
+ <span class="eyebrow">Начнём разговор</span>
+ <h2>Готовы обсудить вашу задачу?</h2>
+ <p>Расскажите о задаче, отвечу в течение дня.</p>
+ <div class="cta"><a class="btn" href="https://t.me/AndreyAFomin" target="_blank" rel="noopener">Написать в Telegram</a><a class="btn ghost" href="https://www.linkedin.com/in/andreyafomin" target="_blank" rel="noopener">LinkedIn</a></div>
+</div></section>
+</main>
+<footer><div class="wrap">
+ <div>Андрей Фомин<br>Основатель Ассоциации Интерим Менеджеров</div>
+ <div class="soc"><a href="https://t.me/AndreyAFomin">Telegram</a><a href="https://max.ru/channel_aim_interims">Max</a><a href="https://www.linkedin.com/in/andreyafomin">LinkedIn</a><a href="../">aim-interims.ru</a></div>
+</div></footer>
+</body>
+</html>
