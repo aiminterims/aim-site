@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Реквизиты · Ассоциация интерим менеджеров</title>
+<meta name="description" content="Реквизиты индивидуального предпринимателя, принимающего оплату услуг Ассоциации интерим менеджеров.">
+<link rel="icon" href="../assets/favicon.png?v=3" type="image/png"><link rel="shortcut icon" href="../favicon.ico?v=3">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Manrope:wght@400;500;700&display=swap">
+<style>
+/* Layout: тёмная страница реквизитов в стиле АИМ, одна колонка с таблицей данных */
+:root{--bg:#232325;--surface:#2E2E31;--line:#46464B;--fg:#F4F2EE;--muted:#B4B2AE;--accent:#E8A33D;--display:"Unbounded","Arial Black",system-ui,sans-serif;--body:"Manrope","Segoe UI",system-ui,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:17px/1.55 var(--body);margin:0;padding-block:32px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.w{max-width:760px;margin:0 auto;display:grid;gap:24px}
+a{color:var(--accent)}
+h1{font-family:var(--display);font-size:clamp(28px,5vw,44px);line-height:1.1;margin:0;text-wrap:balance}
+.logo{width:150px;height:auto}
+dl{margin:0;display:grid;gap:0;background:var(--surface);border-radius:16px;overflow:hidden}
+dl div{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:16px;padding:14px 18px;border-top:1px solid var(--line)}
+dl div:first-child{border-top:0}
+dt{color:var(--muted)}dd{margin:0;font-weight:500;overflow-wrap:anywhere}
+@media(max-width:520px){dl div{grid-template-columns:1fr;gap:2px}}
+p{margin:0;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="w">
+<a href="../"><img class="logo" src="../assets/logo.png" alt="Ассоциация интерим менеджеров"></a>
+<h1>Реквизиты</h1>
+<dl>
+<div><dt>Исполнитель</dt><dd>Индивидуальный предприниматель Фомина Галина Александровна</dd></div>
+<div><dt>ИНН</dt><dd>781432912768</dd></div>
+<div><dt>ОГРНИП</dt><dd>326784700291054</dd></div>
+<div><dt>Город</dt><dd>Санкт-Петербург</dd></div>
+<div><dt>Email</dt><dd><a href="mailto:af@aiminterims.ru">af@aiminterims.ru</a></dd></div>
+<div><dt>Telegram</dt><dd><a href="https://t.me/AndreyAFomin" target="_blank" rel="noopener">@AndreyAFomin</a></dd></div>
+<div><dt>Телефон</dt><dd><a href="tel:+79119711519">+7 911 971-15-19</a></dd></div>
+</dl>
+<p><a href="../oferta.pdf" target="_blank" rel="noopener">Публичная оферта (PDF)</a> · <a href="../test/">Тест «Готов ли я стать интеримом»</a></p>
+</div>
+</body>
+</html>
