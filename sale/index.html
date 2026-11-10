@@ -35,6 +35,10 @@ section{padding-block:clamp(48px,7vw,88px)}
 header{position:sticky;top:0;z-index:20;background:rgba(35,35,37,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(70,70,75,.6)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
 .nav img{height:44px;width:auto}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav ul a{color:var(--muted);font-weight:700;font-size:15px}
+.nav ul a:hover{color:var(--fg)}
+@media(max-width:960px){.nav ul{display:none}}
 .nav .btn{padding:10px 20px;font-size:15px}
 .hero{position:relative;overflow:hidden;padding-block:clamp(48px,8vw,100px) clamp(40px,6vw,72px)}
 .hero::after{content:"";position:absolute;right:-120px;top:-60px;width:620px;height:620px;background:url(assets/logo.png) no-repeat center/contain;opacity:.05;pointer-events:none}
@@ -98,8 +102,17 @@ footer{padding-block:40px;border-top:1px solid var(--line)}
 <body>
 <header>
   <div class="wrap nav">
-    <a href="#" aria-label="На главную"><img src="assets/logo.png" alt="Ассоциация Интерим Менеджеров"></a>
-    <a class="btn" href="#offers">Выбрать предложение</a>
+    <a href="/" aria-label="На главную"><img src="assets/logo.png" alt="Ассоциация Интерим Менеджеров"></a>
+    <ul>
+      <li><a href="/#events">Мероприятия</a></li>
+      <li><a href="/#owners">Собственникам</a></li>
+      <li><a href="/school/">Школа</a></li>
+      <li><a href="/#about">О нас</a></li>
+      <li><a href="/#team">Команда</a></li>
+      <li><a href="/#partners">Партнёры</a></li>
+      <li><a href="/#contacts">Контакты</a></li>
+    </ul>
+    <a class="btn" href="https://t.me/AndreyAFomin" target="_blank" rel="noopener">Обсудить задачу</a>
   </div>
 </header>
 <main>
