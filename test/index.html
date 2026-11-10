@@ -250,7 +250,7 @@ function reportParts(s){
 }
 
 const SCHOOL="https://aim-interims.ru/school/";
-const CFG={price:"5 000 ₽",testMode:true,contact:"https://t.me/Andrey_Fomin_TeamBot"};
+const CFG={price:"5 000 ₽",testMode:false,contact:"https://t.me/Andrey_Fomin_TeamBot"};
 const app=document.getElementById("app");
 const $=(h)=>{const t=document.createElement("template");t.innerHTML=h.trim();return t.content.firstChild};
 const T=(tag,txt,cls)=>{const e=document.createElement(tag);e.textContent=txt;if(cls)e.className=cls;return e};
@@ -266,6 +266,23 @@ async function pushSub(){
   const {total}=calc(st.a);
   const s={id:st.sid,ts:Date.now(),date:st.date,name:st.reg.name,tg:st.reg.tg,phone:st.reg.phone,email:st.reg.email,total,paid:st.paid,code:st.code,emailReq:st.emailReq,answers:JSON.stringify(st.a)};
   try{const uid=user&&user.id?await user.id():st.sid;await db.doc("submissions/"+uid).set(s);return true}catch(e){return false}
+}
+const PAY_HOOK="https://hook.eu1.make.com/ma3568o4g1g306yr56asz8smvughtmod";
+const STAT_HOOK="https://hook.eu1.make.com/8rlf4jhbfwvovrj25jmue0xdh08co9ml";
+function alert0(t){const d=document.createElement("p");d.className="small mute";d.textContent=t;const a=document.getElementById("app");a.append(d)}
+async function checkPay(){
+  const sid=new URLSearchParams(location.search).get("pay");
+  if(!sid||st.paid||sid!==st.sid)return;
+  const wait=document.createElement("div");wait.className="card";wait.innerHTML="<p>Проверяем оплату...</p>";app.prepend(wait);
+  for(let i=0;i<20;i++){
+    try{
+      const r=await fetch(STAT_HOOK,{method:"POST",body:new URLSearchParams({sid})});
+      const j=await r.json();
+      if(j&&j.paid==="оплачен"&&j.code){st.paid=true;st.code=j.code;save();history.replaceState(null,"","/test/");render();scrollTo(0,0);pushSub();sendToTeam();return}
+    }catch(e){}
+    await new Promise(r=>setTimeout(r,3000));
+  }
+  wait.innerHTML="<p>Оплата ещё не подтверждена. Если вы оплатили, обновите страницу через минуту или напишите нам: "+CFG.contact+"</p>";
 }
 const RES_HOOK="https://hook.eu1.make.com/84wq7qja3p4te615h9xvp3bbca8t8pod";
 async function sendToTeam(){
@@ -402,7 +419,16 @@ function result(){
   if(!paid){
     const pay=$(`<div class="card pay"><h2>Открыть полный разбор за ${CFG.price}</h2><p class="small mute">Вы получите вердикт, процент по каждому из 10 блоков, план подготовки по каждому блоку и разбор всех ваших ответов с лучшими вариантами. Код доступа придёт сразу после оплаты.</p></div>`);
     const b=T("button",CFG.testMode?`Оплатить ${CFG.price} (тестовый режим)`:`Оплатить ${CFG.price}`,"btn");
-    b.onclick=async()=>{st.code="AIM-"+rc(4)+"-"+rc(4);st.paid=true;save();render();scrollTo(0,0);pushSub();sendToTeam()};
+    b.onclick=async()=>{
+      b.disabled=true;b.textContent="Переходим к оплате...";
+      try{
+        const fb=new URLSearchParams({sid:st.sid});
+        const r=await fetch(PAY_HOOK,{method:"POST",body:fb});
+        const j=await r.json();
+        if(j&&j.url){save();location.href=j.url;return}
+        throw new Error("no url");
+      }catch(e){b.disabled=false;b.textContent=`Оплатить ${CFG.price}`;alert0("Не удалось перейти к оплате. Попробуйте ещё раз или напишите нам: "+CFG.contact)}
+    };
     pay.append(b);if(CFG.testMode)pay.append(T("p","Тестовый режим: деньги не списываются, код доступа создаётся автоматически.","small mute"));
     app.append(pay);
   }else{
@@ -412,7 +438,7 @@ function result(){
     const em=T("button",st.emailReq?"Запрос на отправку сохранён":"Отправить результаты на email","btn");em.disabled=st.emailReq||!st.reg.email;
     em.onclick=async()=>{st.emailReq=true;save();render();pushSub()};
     row.append(em);c.append(row);
-    c.append(T("p",st.reg.email?(CFG.testMode?"Тестовый режим: письмо пока не отправляется, запрос сохраняется для команды АИМ.":"Письмо придёт на "+st.reg.email):"Email не указан при регистрации.","small mute"));
+    c.append(T("p",st.reg.email?(CFG.testMode?"Тестовый режим: письмо пока не отправляется, запрос сохраняется для команды АИМ.":"Запрос сохранён: команда АИМ отправит результаты на "+st.reg.email):"Email не указан при регистрации.","small mute"));
     c.append(T("p","Команда АИМ свяжется с вами по контактам из регистрации и расскажет о программе Школы интерим-менеджеров.","small mute"));
     const sl=T("a","Узнать о Школе интерим-менеджеров","btn");sl.href=SCHOOL;sl.target="_blank";sl.rel="noopener";sl.style.textDecoration="none";c.append(sl);
     app.append(c);
@@ -450,6 +476,7 @@ async function admin(){
   });
 }
 render();
+checkPay();
 
 </script>
 </body>
