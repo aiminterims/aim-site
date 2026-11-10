@@ -227,7 +227,7 @@ const tbl=(rows,ws)=>`<w:tbl><w:tblPr><w:tblW w:w="${ws.reduce((a,b)=>a+b,0)}" w
 function reportParts(s){
   const {cats,total}=calc(s.answers),lv=level(total,cats);
   const weak=[...cats].sort((a,b)=>a.p-b.p).slice(0,3);
-  const rows=[["ФИО",s.name],["Telegram",s.tg],["Телефон",s.phone],["Email",s.email||"не указан"],["Дата теста",s.date||""],["Оплата",s.paid?"оплачен (код "+(s.code||"")+")":"не оплачен"]];
+  const rows=[["ФИО",s.name],["Telegram",s.tg],["Телефон",s.phone],["Email",s.email||"не указан"],["Дата теста",s.date||""],["Оплата",s.paid?(String(s.code||"").startsWith("PROMO")?"бесплатно по промокоду ("+s.code+")":"оплачен (код "+(s.code||"")+")"):"не оплачен"]];
   rows.header=false;
   const cr=[["Блок","Результат"],...cats.map(c=>[c.n,c.p+"%"])];cr.header=true;
   let b="";
@@ -273,6 +273,7 @@ async function pushSub(){
   const s={id:st.sid,ts:Date.now(),date:st.date,name:st.reg.name,tg:st.reg.tg,phone:st.reg.phone,email:st.reg.email,total,paid:st.paid,code:st.code,emailReq:st.emailReq,answers:JSON.stringify(st.a)};
   try{const uid=user&&user.id?await user.id():st.sid;await db.doc("submissions/"+uid).set(s);return true}catch(e){return false}
 }
+const PROMO_HOOK="https://hook.eu1.make.com/cled5kfe325362gp097rooh9a1yfqdyy";
 const PAY_HOOK="https://hook.eu1.make.com/ma3568o4g1g306yr56asz8smvughtmod";
 const STAT_HOOK="https://hook.eu1.make.com/8rlf4jhbfwvovrj25jmue0xdh08co9ml";
 function alert0(t){const d=document.createElement("p");d.className="small mute";d.textContent=t;const a=document.getElementById("app");a.append(d)}
@@ -298,7 +299,7 @@ async function sendToTeam(){
     const s={id:st.sid,name:st.reg.name,tg:st.reg.tg,phone:st.reg.phone,email:st.reg.email,date:st.date,total,paid:st.paid,code:st.code,answers:st.a};
     const z=new JSZip();const parts=reportParts(s);for(const k in parts)z.file(k,parts[k]);
     const b64=await z.generateAsync({type:"base64",compression:"DEFLATE"});
-    const fb=new URLSearchParams({id:st.sid,name:st.reg.name,tg:st.reg.tg,phone:st.reg.phone,email:st.reg.email||"",date:st.date,score:total+"%",paid:st.paid?"оплачен":"не оплачен",file:st.reg.name.replace(/[\\/:*?"<>|]/g,"").trim()+".docx",docx:b64});
+    const fb=new URLSearchParams({id:st.sid,name:st.reg.name,tg:st.reg.tg,phone:st.reg.phone,email:st.reg.email||"",date:st.date,score:total+"%",paid:st.paid?(String(st.code||"").startsWith("PROMO")?"промокод":"оплачен"):"не оплачен",file:st.reg.name.replace(/[\\/:*?"<>|]/g,"").trim()+".docx",docx:b64});
     await fetch(RES_HOOK,{method:"POST",mode:"no-cors",body:fb});
   }catch(e){}
 }
@@ -319,7 +320,25 @@ function start(){
   $(`<div class="card"><p><b>Как это работает</b></p><ol><li>Короткая регистрация</li><li>В части вопросов можно выбрать несколько ответов, это указано в тексте вопроса.</li><li>Сам тест и общий результат (процент готовности) бесплатны.</li><li>Стоимость указана за полный разбор результатов теста: итоговый результат, оценка по блокам и рекомендации по усилению слабых блоков, план подготовки и разбор Ваших ответов.</li></ol></div>`));
   const done=st.a.filter(x=>x!=null).length;
   const b=T("button",done?`Продолжить (${done} из 100)`:"Начать","btn");
-  b.onclick=()=>{st.screen=st.reg.name&&st.consent?"quiz":"reg";if(st.screen==="quiz"){const i=st.a.findIndex(x=>x==null);st.step=i<0?0:i}save();render()};
+  const go=()=>{st.screen=st.reg.name&&st.consent?"quiz":"reg";if(st.screen==="quiz"){const i=st.a.findIndex(x=>x==null);st.step=i<0?0:i}save();render()};
+  if(st.paid&&st.promo){app.append($(`<div class="card"><p class="small" style="margin:0"><b>Промокод принят.</b> Полные результаты откроются без оплаты.</p></div>`))}
+  else{
+    const pw=$(`<div class="card"><label class="fl"><span>Промокод (если он у вас есть)</span><input id="promo" type="text" placeholder="AIM-000-00000000" autocomplete="off" autocapitalize="characters"></label><p class="small err" id="promoerr" style="margin:6px 0 0" hidden></p></div>`);
+    app.append(pw);
+    b.onclick=async()=>{
+      const v=pw.querySelector("#promo").value.trim(),er=pw.querySelector("#promoerr");er.hidden=true;
+      if(!v){go();return}
+      b.disabled=true;const t0=b.textContent;b.textContent="Проверяем промокод...";
+      try{
+        const r=await fetch(PROMO_HOOK,{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams({code:v,sid:st.sid})});
+        const j=await r.json();
+        if(j&&j.ok==="yes"&&j.code){st.paid=true;st.code=j.code;st.promo=v.toUpperCase();save();go();return}
+        er.textContent="Промокод не найден или уже использован. Проверьте код или начните тест без него.";er.hidden=false;
+      }catch(e){er.textContent="Не удалось проверить промокод. Попробуйте ещё раз.";er.hidden=false}
+      b.disabled=false;b.textContent=t0};
+    app.append(b);return;
+  }
+  b.onclick=go;
   app.append(b);
 }
 function reg(){
