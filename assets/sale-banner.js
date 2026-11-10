@@ -32,7 +32,7 @@
   var b=d.createElement("a");b.className="sb";b.href=href;b.setAttribute("aria-label","Распродажа 11.11 - 13.11. Перейти к предложениям");
   b.innerHTML='<div class="sb-in"><div class="sb-tags">'+tags+'</div><div class="sb-txt"><div class="sb-big">Распродажа <b>11.11 – 13.11</b></div><div class="sb-sub">Скидки до 50% на Школу, консультации и тест</div><span class="sb-go">Смотреть предложения →</span></div></div>';
   function place(){
-    d.body.insertBefore(b,d.body.firstChild);
+    if(!onSale)d.body.insertBefore(b,d.body.firstChild);
     var ul=d.querySelector("header .nav ul, header nav ul");
     if(ul){var li=d.createElement("li"),a=d.createElement("a");a.href=href;a.textContent="Распродажа";a.className="nav-sale";li.appendChild(a);ul.insertBefore(li,ul.firstChild)}
   }
