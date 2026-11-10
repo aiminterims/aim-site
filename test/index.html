@@ -422,7 +422,9 @@ function result(){
     b.onclick=async()=>{
       b.disabled=true;b.textContent="Переходим к оплате...";
       try{
-        const fb=new URLSearchParams({sid:st.sid});
+        const ph=(st.reg.phone||"").replace(/\D/g,"").replace(/^8(?=\d{10}$)/,"7");
+        const em=(st.reg.email||"").trim().replace(/["\\\s<>]/g,"");
+        const fb=new URLSearchParams({sid:st.sid,email:/^[^@]+@[^@]+\.[^@]+$/.test(em)?em:"",phone:ph});
         const r=await fetch(PAY_HOOK,{method:"POST",body:fb});
         const j=await r.json();
         if(j&&j.url){save();location.href=j.url;return}
@@ -435,10 +437,23 @@ function result(){
     const c=$(`<div class="card"><div class="sh"><h2>Доступ открыт</h2></div><p class="small mute">Ваш код доступа: <b class="code"></b></p></div>`);
     c.querySelector(".code").textContent=st.code;
     const row=$(`<div class="row"></div>`);
-    const em=T("button",st.emailReq?"Запрос на отправку сохранён":"Отправить результаты на email","btn");em.disabled=st.emailReq||!st.reg.email;
-    em.onclick=async()=>{st.emailReq=true;save();render();pushSub()};
-    row.append(em);c.append(row);
-    c.append(T("p",st.reg.email?(CFG.testMode?"Тестовый режим: письмо пока не отправляется, запрос сохраняется для команды АИМ.":"Запрос сохранён: команда АИМ отправит результаты на "+st.reg.email):"Email не указан при регистрации.","small mute"));
+    const dlb=T("button","Скачать результаты (Word)","btn");
+    dlb.onclick=async()=>{
+      if(typeof JSZip==="undefined"){dlb.textContent="Скачивание недоступно";return}
+      dlb.disabled=true;dlb.textContent="Готовим файл...";
+      try{
+        const {total}=calc(st.a);
+        const sub={id:st.sid,name:st.reg.name,tg:st.reg.tg,phone:st.reg.phone,email:st.reg.email,date:st.date,total,paid:st.paid,code:st.code,answers:st.a};
+        const z=new JSZip();const parts=reportParts(sub);for(const k in parts)z.file(k,parts[k]);
+        const blob=await z.generateAsync({type:"blob",mimeType:"application/vnd.openxmlformats-officedocument.wordprocessingml.document",compression:"DEFLATE"});
+        const a=document.createElement("a");a.href=URL.createObjectURL(blob);
+        a.download="Результаты теста АИМ — "+(st.reg.name||"участник").replace(/[\\/:*?"<>|]/g,"").trim()+".docx";
+        document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),5000);
+        dlb.textContent="Скачать ещё раз";
+      }catch(e){dlb.textContent="Не удалось скачать, попробуйте ещё раз"}
+      dlb.disabled=false;
+    };
+    row.append(dlb);c.append(row);
     c.append(T("p","Команда АИМ свяжется с вами по контактам из регистрации и расскажет о программе Школы интерим-менеджеров.","small mute"));
     const sl=T("a","Узнать о Школе интерим-менеджеров","btn");sl.href=SCHOOL;sl.target="_blank";sl.rel="noopener";sl.style.textDecoration="none";c.append(sl);
     app.append(c);
