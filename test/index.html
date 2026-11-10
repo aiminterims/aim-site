@@ -267,6 +267,18 @@ async function pushSub(){
   const s={id:st.sid,ts:Date.now(),date:st.date,name:st.reg.name,tg:st.reg.tg,phone:st.reg.phone,email:st.reg.email,total,paid:st.paid,code:st.code,emailReq:st.emailReq,answers:JSON.stringify(st.a)};
   try{const uid=user&&user.id?await user.id():st.sid;await db.doc("submissions/"+uid).set(s);return true}catch(e){return false}
 }
+const RES_HOOK="https://hook.eu1.make.com/84wq7qja3p4te615h9xvp3bbca8t8pod";
+async function sendToTeam(){
+  try{
+    if(typeof JSZip==="undefined")return;
+    const {total}=calc(st.a);
+    const s={id:st.sid,name:st.reg.name,tg:st.reg.tg,phone:st.reg.phone,email:st.reg.email,date:st.date,total,paid:st.paid,code:st.code,answers:st.a};
+    const z=new JSZip();const parts=reportParts(s);for(const k in parts)z.file(k,parts[k]);
+    const b64=await z.generateAsync({type:"base64",compression:"DEFLATE"});
+    const fb=new URLSearchParams({id:st.sid,name:st.reg.name,tg:st.reg.tg,phone:st.reg.phone,email:st.reg.email||"",date:st.date,score:total+"%",paid:st.paid?"оплачен":"не оплачен",file:st.reg.name.replace(/[\\/:*?"<>|]/g,"").trim()+".docx",docx:b64});
+    await fetch(RES_HOOK,{method:"POST",mode:"no-cors",body:fb});
+  }catch(e){}
+}
 const LOGO=`<div class="logo" role="img" aria-label="Ассоциация интерим менеджеров"><svg viewBox="0 0 480 150" width="132" height="41" fill="none" stroke="currentColor" stroke-width="20" stroke-linejoin="round" aria-hidden="true"><polygon points="75,24 20,126 130,126"/><rect x="200" y="24" width="100" height="102" rx="10"/><polygon points="405,16 456,54 437,122 373,122 354,54"/></svg></div>`;
 function render(){
   app.innerHTML="";
@@ -338,7 +350,7 @@ function quiz(){
   app.append(nav);
 }
 async function finish(){
-  st.screen="result";st.date=new Date().toLocaleDateString("ru-RU");save();render();scrollTo(0,0);pushSub();
+  st.screen="result";st.date=new Date().toLocaleDateString("ru-RU");save();render();scrollTo(0,0);pushSub();sendToTeam();
 }
 const lockedBox=(inner)=>`<div class="blurwrap" aria-hidden="true">${inner}</div>`;
 function result(){
@@ -390,7 +402,7 @@ function result(){
   if(!paid){
     const pay=$(`<div class="card pay"><h2>Открыть полный разбор за ${CFG.price}</h2><p class="small mute">Вы получите вердикт, процент по каждому из 10 блоков, план подготовки по каждому блоку и разбор всех ваших ответов с лучшими вариантами. Код доступа придёт сразу после оплаты.</p></div>`);
     const b=T("button",CFG.testMode?`Оплатить ${CFG.price} (тестовый режим)`:`Оплатить ${CFG.price}`,"btn");
-    b.onclick=async()=>{st.code="AIM-"+rc(4)+"-"+rc(4);st.paid=true;save();render();scrollTo(0,0);pushSub()};
+    b.onclick=async()=>{st.code="AIM-"+rc(4)+"-"+rc(4);st.paid=true;save();render();scrollTo(0,0);pushSub();sendToTeam()};
     pay.append(b);if(CFG.testMode)pay.append(T("p","Тестовый режим: деньги не списываются, код доступа создаётся автоматически.","small mute"));
     app.append(pay);
   }else{
