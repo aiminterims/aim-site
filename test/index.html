@@ -237,7 +237,13 @@ function reportParts(s){
   b+=P("Итог: "+total+"%, вывод «"+lv.k+"»",{b:1,sz:26,sp:240})+P(lv.d);
   b+=P("Результаты по блокам",{b:1,sz:26,sp:240})+tbl(cr,[6400,2600]);
   b+=P("Зоны для улучшения (приоритет)",{b:1,sz:26,sp:240});
-  weak.forEach(c=>{b+=par(run(c.n+": "+c.p+"%. ",{b:1})+run(c.tip))});
+  weak.forEach(c=>{
+    const tp=String(c.tip||""),i=tp.indexOf("Шаги:");
+    if(i<0){b+=par(run(c.n+": "+c.p+"%. ",{b:1})+run(tp));return}
+    b+=par(run(c.n+": "+c.p+"%. ",{b:1})+run(tp.slice(0,i).trim()),{sp:120});
+    b+=P("Для развития этого блока рекомендуем выполнить следующие шаги по порядку:");
+    const st=(c.p<50?c.rec.low:c.rec.mid)||[];
+    st.forEach((t,k)=>{b+=par(run((k+1)+". "+t))})});
   b+=P("Предложение для связи",{b:1,sz:26,sp:240})+P("Связаться с участником по указанным контактам и предложить программу Школы интерим-менеджеров, начиная с блоков, перечисленных выше.");
   const m=misses(s.answers).filter(x=>x.q.k!=="s"&&x.s<2).slice(0,20);
   if(m.length){b+=P("Ключевые ошибки в ответах (до 20)",{b:1,sz:26,sp:240});
@@ -397,7 +403,7 @@ function result(){
       const low=c.p<50,r=$(`<div class="rec"><div class="sh"><b></b><span class="tag"></span></div><p class="small mute lv"></p><ol class="steps"></ol></div>`);
       r.querySelector("b").textContent=c.n+": "+c.p+"%";
       r.querySelector(".tag").textContent=low?"низкий уровень":"средний уровень";r.querySelector(".tag").classList.add("lvl",low?"lo":"mi");
-      r.querySelector(".lv").textContent=low?"Выполните шаги по порядку:":"Усильте профиль:";
+      r.querySelector(".lv").textContent=low?"Для развития этого блока рекомендуем выполнить следующие шаги по порядку:":"Усильте профиль:";
       const ol=r.querySelector("ol");(low?c.rec.low:c.rec.mid).forEach(t=>ol.append(T("li",t)));
       s3.append(r)});
     if(!need.length)s3.append(T("p","Все блоки на высоком уровне (75% и выше): дополнительных шагов подготовки не требуется.","mute"));
