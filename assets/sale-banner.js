@@ -3,7 +3,7 @@
   if(Date.now()>=Date.parse("2026-11-14T00:00:00+03:00"))return;
   var d=document,onSale=/^\/sale\/?$/.test(location.pathname),href=onSale?"#offers":"/sale/";
   var css=
-  ".sb{display:block;position:relative;z-index:30;text-decoration:none;color:#fff;overflow:hidden;background:radial-gradient(600px 160px at 50% 100%,rgba(220,50,40,.35),transparent 70%),linear-gradient(180deg,#171112,#2a1412);border-bottom:2px solid #d8352a;font-family:Inter,system-ui,-apple-system,'Segoe UI',Arial,sans-serif}"+
+  "body{overflow-anchor:none}.sb{display:block;position:relative;z-index:30;text-decoration:none;color:#fff;overflow:hidden;background:radial-gradient(600px 160px at 50% 100%,rgba(220,50,40,.35),transparent 70%),linear-gradient(180deg,#171112,#2a1412);border-bottom:2px solid #d8352a;font-family:Inter,system-ui,-apple-system,'Segoe UI',Arial,sans-serif}"+
   ".sb:hover .sb-go{background:#fff;color:#c4271d}"+
   ".sb-in{max-width:1180px;margin:0 auto;padding:0 16px 14px;display:flex;align-items:flex-end;justify-content:center;gap:clamp(14px,3vw,40px);flex-wrap:wrap}"+
   ".sb-tags{display:flex;align-items:flex-start;justify-content:center;gap:clamp(1px,.4vw,5px)}"+
@@ -30,9 +30,16 @@
     '<text x="30" y="110" text-anchor="middle" font-family="Georgia,\'Times New Roman\',serif" font-weight="700" font-size="58" fill="#fff">'+ch+'</text></svg>';
   });
   var b=d.createElement("a");b.className="sb";b.href=href;b.setAttribute("aria-label","Распродажа 11.11 - 13.11. Перейти к предложениям");
-  b.innerHTML='<div class="sb-in"><div class="sb-tags">'+tags+'</div><div class="sb-txt"><div class="sb-big">Распродажа <b>11.11 – 13.11</b></div><div class="sb-sub">Скидки до 50% на Школу, консультации и тест</div><span class="sb-go">Смотреть предложения →</span></div></div>';
+  b.innerHTML='<div class="sb-in"><div class="sb-tags">'+tags+'</div><div class="sb-txt"><div class="sb-big">Распродажа <b>11.11 – 13.11</b></div><span class="sb-go">Смотреть предложения →</span></div></div>';
   function place(){
-    if(!onSale)d.body.insertBefore(b,d.body.firstChild);
+    var y0=window.pageYOffset||0,top=!location.hash&&y0<5;
+    if(!onSale){
+      var cs=getComputedStyle(d.body),pt=parseFloat(cs.paddingTop)||0,pr=parseFloat(cs.paddingRight)||0,pl=parseFloat(cs.paddingLeft)||0,mt=parseFloat(cs.marginTop)||0,mr=parseFloat(cs.marginRight)||0,ml=parseFloat(cs.marginLeft)||0;
+      b.style.margin=(-(pt+mt))+"px "+(-(pr+mr))+"px 0 "+(-(pl+ml))+"px";
+      if(cs.display==="grid"){b.style.gridColumn="1/-1";b.style.alignSelf="start";b.style.justifySelf="stretch"}
+      d.body.insertBefore(b,d.body.firstChild);
+    }
+    if(top&&!onSale){var fix=function(){if(!location.hash&&(window.pageYOffset||0)<=b.offsetHeight+5)window.scrollTo(0,0)};fix();window.addEventListener("load",function(){fix();setTimeout(fix,150)})}
     var ul=d.querySelector("header .nav ul, header nav ul");
     if(ul){var li=d.createElement("li"),a=d.createElement("a");a.href=href;a.textContent="Распродажа";a.className="nav-sale";li.appendChild(a);ul.insertBefore(li,ul.firstChild)}
   }
