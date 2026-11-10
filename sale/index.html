@@ -97,9 +97,51 @@ footer{padding-block:40px;border-top:1px solid var(--line)}
 .foot{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between;align-items:center}
 @media(max-width:860px){.offer{grid-template-columns:minmax(0,1fr)}.rules{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* фоновые контуры из логотипа, как в баннере LinkedIn */
+body{position:relative}
+#deco{position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden}
+#deco svg{display:block;width:100%}
+main>section>.wrap,footer>.wrap{position:relative;z-index:1}
 </style>
 </head>
 <body>
+<div id="deco" aria-hidden="true"></div>
+<script>
+(function(){
+  var NS="http://www.w3.org/2000/svg",host=document.getElementById("deco");
+  function poly(n,r,rot){var p=[];for(var i=0;i<n;i++){var a=rot+i*2*Math.PI/n-Math.PI/2;p.push((Math.cos(a)*r).toFixed(1)+","+(Math.sin(a)*r).toFixed(1))}return p.join(" ")}
+  function el(p,t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e}
+  var seed=11;function R(){seed=(seed*16807)%2147483647;return seed/2147483647}
+  function build(){
+    host.innerHTML="";
+    var W=document.documentElement.clientWidth,H=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
+    var svg=el(host,"svg",{width:W,height:H,viewBox:"0 0 "+W+" "+H});
+    var d=el(svg,"defs",{});
+    var f=el(d,"filter",{id:"dg",x:"-60%",y:"-60%",width:"220%",height:"220%"});el(f,"feGaussianBlur",{stdDeviation:5});
+    var lg=el(d,"linearGradient",{id:"ds",x1:0,y1:0,x2:1,y2:1});
+    el(lg,"stop",{offset:0,"stop-color":"#ffd9a0"});el(lg,"stop",{offset:1,"stop-color":"#E8A33D"});
+    seed=11;
+    var narrow=W<760,step=narrow?330:230,pts=[],kinds=[3,4,5],i=0;
+    for(var y=140;y<H-120;y+=step+R()*160,i++){
+      var left=i%2===0,n=kinds[i%3];
+      var m=Math.max(0,(W-1140)/2),r=(narrow?16:14)+R()*(narrow?14:12);
+      var x=narrow?(left?W*.1+R()*W*.12:W*.78+R()*W*.12):(left?Math.max(r+8,m/2-6+R()*12):W-Math.max(r+8,m/2-6+R()*12));
+      var rot=(R()-.5)*1.1,o=(narrow?.2:.45)+R()*.2;
+      pts.push([x,y]);
+      var g=el(svg,"g",{transform:"translate("+x.toFixed(0)+" "+y.toFixed(0)+")"});
+      el(g,"polygon",{points:poly(n,r,rot),fill:"none",stroke:"#E8A33D","stroke-width":3,"stroke-linejoin":"round",opacity:o*.8,filter:"url(#dg)"});
+      el(g,"polygon",{points:poly(n,r,rot),fill:"none",stroke:"url(#ds)","stroke-width":1.3,"stroke-linejoin":"round",opacity:o+.18});
+      el(g,"polygon",{points:poly(n,r*.58,rot),fill:"none",stroke:"#fff","stroke-width":.6,"stroke-linejoin":"round",opacity:o*.5});
+    }
+    el(svg,"polyline",{points:pts.map(function(p){return p[0].toFixed(0)+","+p[1].toFixed(0)}).join(" "),fill:"none",stroke:"#E8A33D","stroke-width":.7,opacity:.2,"stroke-dasharray":"2 6"});
+    for(var k=0;k<Math.round(H/9);k++){el(svg,"circle",{cx:(R()*W).toFixed(0),cy:(R()*H).toFixed(0),r:(.5+R()*.6).toFixed(2),fill:"#fff",opacity:(.08+R()*.25).toFixed(2)})}
+  }
+  var t;function re(){clearTimeout(t);t=setTimeout(build,200)}
+  window.addEventListener("load",build);window.addEventListener("resize",re);
+  if(window.ResizeObserver)new ResizeObserver(re).observe(document.body);
+})();
+</script>
 <header>
   <div class="wrap nav">
     <a href="/" aria-label="На главную"><img src="assets/logo.png" alt="Ассоциация Интерим Менеджеров"></a>
