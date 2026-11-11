@@ -59,6 +59,8 @@ header{position:sticky;top:0;z-index:20;background:rgba(35,35,37,.92);backdrop-f
 .tag::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;flex:none;animation:tagdot 1.1s ease-in-out infinite}
 .tag.o{background:linear-gradient(135deg,#f2b24f,#e08a1e);color:#1c1c1e;box-shadow:0 0 0 0 rgba(232,163,61,.6),0 6px 22px rgba(232,163,61,.4);animation-name:tagpulse2;border:0}
 .tag.o::before{background:#1c1c1e}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+@media(max-width:480px){.tags .tag{font-size:11px;letter-spacing:.06em;padding:6px 12px}}
 @keyframes tagpulse{0%{box-shadow:0 0 0 0 rgba(255,74,61,.65),0 6px 22px rgba(216,53,42,.45)}70%,100%{box-shadow:0 0 0 10px rgba(255,74,61,0),0 6px 22px rgba(216,53,42,.45)}}
 @keyframes tagpulse2{0%{box-shadow:0 0 0 0 rgba(232,163,61,.65),0 6px 22px rgba(232,163,61,.4)}70%,100%{box-shadow:0 0 0 10px rgba(232,163,61,0),0 6px 22px rgba(232,163,61,.4)}}
 @keyframes tagdot{0%,100%{opacity:1}50%{opacity:.25}}
@@ -186,7 +188,7 @@ main>section>.wrap,footer>.wrap{position:relative;z-index:1}
 
       <article class="offer main" id="school">
         <div class="offer-head">
-          <span class="tag">Только 5 мест из 15</span>
+          <div class="tags"><span class="tag">Только 5 мест из 15</span><span class="tag o">Школа — осталось 3 места</span></div>
           <h3>Обучение в Школе интерим-менеджеров</h3>
           <p class="lead">Первая в России Школа интерим-менеджеров. Вы соберёте профессию из опыта топ-менеджера: маркетинг и поиск проектов, позиционирование, вход в проект, защищённый контракт, выход из проекта.</p>
           <div class="live"><span aria-hidden="true">●</span><p><b>Только живые тренеры, не видеоуроки.</b> 7 недель, 14 живых онлайн-встреч, 2 вечера в неделю, группа до 15 человек. Аттестация: защита собственного кейса.</p></div>
@@ -232,7 +234,7 @@ main>section>.wrap,footer>.wrap{position:relative;z-index:1}
 
       <article class="offer" id="consult">
         <div class="offer-head">
-          <span class="tag">Только 5 мест</span>
+          <div class="tags"><span class="tag">Только 5 мест</span><span class="tag o">Консультация — осталось 2 места</span></div>
           <h3>Персональная консультация: интерим-менеджер как следующий шаг в карьере топ-менеджера</h3>
           <p class="lead">На консультации мы проработаем следующие вопросы:</p>
           <ul>
@@ -290,7 +292,7 @@ main>section>.wrap,footer>.wrap{position:relative;z-index:1}
 
       <article class="offer" id="mentor">
         <div class="offer-head">
-          <span class="tag">Только 2 места</span>
+          <div class="tags"><span class="tag">Только 2 места</span><span class="tag o">Менторство — осталось 1 место</span></div>
           <h3>Личное менторство собственника бизнеса или руководителя</h3>
           <p class="lead">Я опытный руководитель, поэтому дорожу своим временем и уважаю ваше. Перед тем как обратиться ко мне за консультацией, давайте определимся, подхожу ли я вам как ментор.</p>
           <h4 class="prog-h">Моя экспертиза</h4>
