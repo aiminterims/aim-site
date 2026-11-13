@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Продукты АИМ — Школа интерим-менеджеров, консультация, тест, менторство</title>
+<meta name="description" content="Продукты Ассоциации Интерим Менеджеров: Школа интерим-менеджеров (400 000 ₽), персональная консультация (40 000 ₽), расшифровка теста готовности (10 000 ₽) и личное менторство (100 000 ₽ за час).">
+<link rel="canonical" href="https://aim-interims.ru/products/">
+<link rel="icon" href="/assets/favicon.png?v=3" type="image/png"><link rel="shortcut icon" href="/favicon.ico?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Manrope:wght@400;500;700;800&display=swap">
+<style>
+:root{--bg:#232325;--bg2:#1C1C1E;--surface:#2E2E31;--surface2:#38383C;--line:#46464B;--fg:#F4F2EE;--muted:#B4B2AE;--dim:#8D8B87;--accent:#E8A33D;--accent-ink:#1E1E20;--display:"Unbounded","Arial Black",system-ui,sans-serif;--body:"Manrope","Segoe UI",system-ui,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:max(20px,env(safe-area-inset-left,0px))}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.1;letter-spacing:-.01em;text-wrap:balance}
+h2{font-size:clamp(26px,4vw,42px);margin:12px 0 18px}
+h3{font-size:clamp(20px,2.4vw,26px);line-height:1.2}
+p{margin:0}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.lead{font-size:clamp(17px,1.8vw,20px);color:var(--muted);max-width:62ch}
+.small{font-size:15px;color:var(--muted)}
+section{padding-block:clamp(48px,7vw,88px)}
+.alt{background:var(--bg2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:var(--accent-ink);font-weight:800;font-size:17px;border-radius:999px;padding:15px 28px;border:2px solid var(--accent);transition:transform .15s,filter .15s;cursor:pointer;text-align:center}
+.btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--fg)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
+header{position:sticky;top:0;z-index:20;background:rgba(35,35,37,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(70,70,75,.6)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+.nav img{height:44px;width:auto}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav ul a{color:var(--muted);font-weight:700;font-size:15px}
+.nav ul a:hover{color:var(--fg)}
+@media(max-width:960px){.nav ul{display:none}}
+.nav .btn{padding:10px 20px;font-size:15px}
+.hero{position:relative;overflow:hidden;padding-block:clamp(48px,8vw,100px) clamp(40px,6vw,72px)}
+.hero::after{content:"";position:absolute;right:-120px;top:-60px;width:620px;height:620px;background:url(assets/logo.png) no-repeat center/contain;opacity:.05;pointer-events:none}
+.hero .eyebrow{font-family:var(--display);font-size:clamp(34px,7vw,88px);font-weight:800;line-height:1.02;letter-spacing:-.02em;text-transform:none;color:var(--accent);max-width:14ch;text-wrap:balance}
+.hero h1{font-size:clamp(24px,3.6vw,44px);font-weight:800;max-width:24ch;margin-top:22px}
+.days{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-top:22px;border-left:4px solid var(--accent);padding-left:16px;font-family:var(--display);font-weight:800;font-size:clamp(18px,2.4vw,26px)}
+.days span{font-family:var(--body);font-weight:600;font-size:clamp(15px,1.6vw,18px);color:var(--muted)}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{margin:22px 0 30px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+.deadline{display:inline-flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-top:34px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 20px}
+.deadline b{color:var(--accent)}
+.offers{display:grid;gap:22px}
+.offer{background:var(--surface);border-radius:24px;padding:clamp(24px,3.4vw,40px);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);min-width:0;position:relative}
+.offer.main{border:2px solid var(--accent)}
+.offer-head{display:flex;flex-direction:column;gap:14px;min-width:0}
+.tag{align-self:flex-start;display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:linear-gradient(135deg,#ff4a3d,#c4271d);color:#fff;border-radius:999px;padding:6px 14px;box-shadow:0 0 0 0 rgba(255,74,61,.6),0 6px 22px rgba(216,53,42,.45);animation:tagpulse 1.8s ease-out infinite}
+.tag::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;flex:none;animation:tagdot 1.1s ease-in-out infinite}
+.tag.o{background:linear-gradient(135deg,#f2b24f,#e08a1e);color:#1c1c1e;box-shadow:0 0 0 0 rgba(232,163,61,.6),0 6px 22px rgba(232,163,61,.4);animation-name:tagpulse2;border:0}
+.tag.o::before{background:#1c1c1e}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+@media(max-width:480px){.tags .tag{font-size:11px;letter-spacing:.06em;padding:6px 12px}}
+@keyframes tagpulse{0%{box-shadow:0 0 0 0 rgba(255,74,61,.65),0 6px 22px rgba(216,53,42,.45)}70%,100%{box-shadow:0 0 0 10px rgba(255,74,61,0),0 6px 22px rgba(216,53,42,.45)}}
+@keyframes tagpulse2{0%{box-shadow:0 0 0 0 rgba(232,163,61,.65),0 6px 22px rgba(232,163,61,.4)}70%,100%{box-shadow:0 0 0 10px rgba(232,163,61,0),0 6px 22px rgba(232,163,61,.4)}}
+@keyframes tagdot{0%,100%{opacity:1}50%{opacity:.25}}
+@media(prefers-reduced-motion:reduce){.tag,.tag::before{animation:none}}
+.offer ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.offer li{display:flex;gap:12px;color:var(--muted)}
+.offer li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:.62em}
+.buy{background:var(--bg2);border-radius:20px;padding:clamp(20px,2.6vw,30px);display:flex;flex-direction:column;gap:16px;min-width:0;align-self:start}
+.pricebox{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 16px}
+.old{font-family:var(--display);font-size:clamp(18px,2vw,22px);color:var(--dim);text-decoration:line-through;text-decoration-thickness:2px}
+.big{font-family:var(--display);font-weight:800;font-size:clamp(56px,8vw,92px);line-height:.95;color:var(--accent);letter-spacing:-.03em}
+.big small{display:block;font-family:var(--body);font-size:13px;font-weight:800;text-transform:uppercase;color:var(--muted);margin-top:10px;letter-spacing:.12em}
+.new{font-family:var(--display);font-weight:800;font-size:clamp(24px,3vw,34px);color:var(--fg);line-height:1.1;white-space:nowrap}
+.pricebox small{flex-basis:100%;font-size:14px;color:var(--muted)}
+.facts{display:grid;gap:8px;font-size:15px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+.facts b{color:var(--fg)}
+.seats{display:flex;gap:6px;flex-wrap:wrap}
+.seat{width:18px;height:18px;border-radius:50%;border:2px solid var(--line)}
+.seat.on{background:var(--accent);border-color:var(--accent)}
+.live{display:flex;gap:12px;align-items:flex-start;background:var(--bg2);border:1px solid var(--accent);border-radius:16px;padding:14px 18px;color:var(--fg);font-size:16px}
+.live b{color:var(--accent)}
+.prog{margin:0;padding:0;list-style:none;counter-reset:m;display:grid;gap:8px;font-size:15px}
+.prog li{counter-increment:m;color:var(--muted);align-items:baseline}
+.prog li::before{content:counter(m,decimal-leading-zero);width:auto;height:auto;border-radius:0;background:none;margin:0;color:var(--accent);font-family:var(--display);font-size:12px;font-weight:800;flex:none;min-width:22px}
+.prog-h{font-family:var(--display);font-size:15px;margin:10px 0 0}
+@media(min-width:1000px){.prog{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px}.prog li{min-width:0}}
+.oferta{font-size:14px;color:var(--muted)}
+.oferta a{text-decoration:underline;text-underline-offset:3px}
+.pay{display:grid;grid-template-columns:132px minmax(0,1fr);gap:16px;align-items:center;border-top:1px solid var(--line);padding-top:16px}
+.pay img{width:132px;height:132px;background:#fff;padding:6px;border-radius:12px}
+.pay b{display:block;font-size:15px}
+.pay p{font-size:14px;color:var(--muted);line-height:1.45}
+.pay .btn{padding:10px 18px;font-size:14px;margin-top:10px}
+@media(max-width:420px){.pay{grid-template-columns:minmax(0,1fr);justify-items:start}}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{background:var(--surface);border-radius:20px;padding:26px;min-width:0}
+.card .n{font-family:var(--display);color:var(--accent);font-size:40px;line-height:1;margin-bottom:12px}
+.final{background:var(--accent);color:var(--accent-ink);border-radius:24px;padding:clamp(28px,4vw,48px);display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between}
+.final h2{margin:0;font-size:clamp(24px,3.4vw,36px)}
+.final .btn{background:var(--accent-ink);color:var(--fg);border-color:var(--accent-ink)}
+footer{padding-block:40px;border-top:1px solid var(--line)}
+.foot{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between;align-items:center}
+@media(max-width:860px){.offer{grid-template-columns:minmax(0,1fr)}.rules{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* фоновые контуры из логотипа, как в баннере LinkedIn */
+body{position:relative}
+#deco{position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden}
+#deco svg{display:block;width:100%}
+main>section>.wrap,footer>.wrap{position:relative;z-index:1}
+</style>
+<script src="/assets/mobile-menu.js" defer></script>
+</head>
+<body>
+<div id="deco" aria-hidden="true"></div>
+<script>
+(function(){
+  var NS="http://www.w3.org/2000/svg",host=document.getElementById("deco");
+  function poly(n,r,rot){var p=[];for(var i=0;i<n;i++){var a=rot+i*2*Math.PI/n-Math.PI/2;p.push((Math.cos(a)*r).toFixed(1)+","+(Math.sin(a)*r).toFixed(1))}return p.join(" ")}
+  function el(p,t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e}
+  var seed=11;function R(){seed=(seed*16807)%2147483647;return seed/2147483647}
+  function build(){
+    host.innerHTML="";
+    var W=document.documentElement.clientWidth,H=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
+    var svg=el(host,"svg",{width:W,height:H,viewBox:"0 0 "+W+" "+H});
+    var d=el(svg,"defs",{});
+    var f=el(d,"filter",{id:"dg",x:"-60%",y:"-60%",width:"220%",height:"220%"});el(f,"feGaussianBlur",{stdDeviation:5});
+    var lg=el(d,"linearGradient",{id:"ds",x1:0,y1:0,x2:1,y2:1});
+    el(lg,"stop",{offset:0,"stop-color":"#ffd9a0"});el(lg,"stop",{offset:1,"stop-color":"#E8A33D"});
+    seed=11;
+    var narrow=W<760,step=narrow?330:230,pts=[],kinds=[3,4,5],i=0;
+    for(var y=140;y<H-120;y+=step+R()*160,i++){
+      var left=i%2===0,n=kinds[i%3];
+      var m=Math.max(0,(W-1140)/2),r=(narrow?16:14)+R()*(narrow?14:12);
+      var x=narrow?(left?W*.1+R()*W*.12:W*.78+R()*W*.12):(left?Math.max(r+8,m/2-6+R()*12):W-Math.max(r+8,m/2-6+R()*12));
+      var rot=(R()-.5)*1.1,o=(narrow?.2:.45)+R()*.2;
+      pts.push([x,y]);
+      var g=el(svg,"g",{transform:"translate("+x.toFixed(0)+" "+y.toFixed(0)+")"});
+      el(g,"polygon",{points:poly(n,r,rot),fill:"none",stroke:"#E8A33D","stroke-width":3,"stroke-linejoin":"round",opacity:o*.8,filter:"url(#dg)"});
+      el(g,"polygon",{points:poly(n,r,rot),fill:"none",stroke:"url(#ds)","stroke-width":1.3,"stroke-linejoin":"round",opacity:o+.18});
+      el(g,"polygon",{points:poly(n,r*.58,rot),fill:"none",stroke:"#fff","stroke-width":.6,"stroke-linejoin":"round",opacity:o*.5});
+    }
+    el(svg,"polyline",{points:pts.map(function(p){return p[0].toFixed(0)+","+p[1].toFixed(0)}).join(" "),fill:"none",stroke:"#E8A33D","stroke-width":.7,opacity:.2,"stroke-dasharray":"2 6"});
+    for(var k=0;k<Math.round(H/9);k++){el(svg,"circle",{cx:(R()*W).toFixed(0),cy:(R()*H).toFixed(0),r:(.5+R()*.6).toFixed(2),fill:"#fff",opacity:(.08+R()*.25).toFixed(2)})}
+  }
+  var t;function re(){clearTimeout(t);t=setTimeout(build,200)}
+  window.addEventListener("load",build);window.addEventListener("resize",re);
+  if(window.ResizeObserver)new ResizeObserver(re).observe(document.body);
+})();
+</script>
+<header>
+  <div class="wrap nav">
+    <a href="/" aria-label="На главную"><img src="assets/logo.png" alt="Ассоциация Интерим Менеджеров"></a>
+    <ul>
+      <li><a href="/#events">Мероприятия</a></li>
+      <li><a href="/products/" aria-current="page" style="color:var(--fg)">Продукты</a></li>
+      <li><a href="/#owners">Собственникам</a></li>
+      <li><a href="/school/">Школа</a></li>
+      <li><a href="/#about">О нас</a></li>
+      <li><a href="/#team">Команда</a></li>
+      <li><a href="/#partners">Партнёры</a></li>
+      <li><a href="/#contacts">Контакты</a></li>
+    </ul>
+    <a class="btn" href="https://t.me/AndreyAFomin" target="_blank" rel="noopener">Обсудить задачу</a>
+  </div>
+</header>
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Продукты АИМ</div>
+    <h1>Четыре способа сделать шаг <em>к профессии интерим-менеджера</em></h1>
+    <p class="lead" style="margin-top:22px">Учёба в Школе, личный разбор вашей ситуации, подробная расшифровка теста готовности и личное менторство. Выберите, с чего начать.</p>
+    <div class="cta-row">
+      <a class="btn" href="#offers">Смотреть предложения</a>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="offers">
+  <div class="wrap">
+    <div class="eyebrow">Предложения</div>
+    <h2>Выберите, с чего начать</h2>
+    <div class="offers">
+
+      <article class="offer main" id="school">
+        <div class="offer-head">
+          <h3>Обучение в Школе интерим-менеджеров</h3>
+          <p class="lead">Первая в России Школа интерим-менеджеров. Вы соберёте профессию из опыта топ-менеджера: маркетинг и поиск проектов, позиционирование, вход в проект, защищённый контракт, выход из проекта.</p>
+          <div class="live"><span aria-hidden="true">●</span><p><b>Только живые тренеры, не видеоуроки.</b> 7 недель, 14 живых онлайн-встреч, 2 вечера в неделю, группа до 15 человек. Аттестация: защита собственного кейса.</p></div>
+          <ul>
+            <li>Сертификат и пул АИМ: после защиты кейса доступ к закрытым проектам Ассоциации</li>
+          </ul>
+          <h4 class="prog-h">Программа Школы: 14 встреч</h4>
+          <ol class="prog" style="padding:0;list-style:none">
+            <li>Знакомство и введение в программу</li>
+            <li>Лидерство в нестандартной ситуации</li>
+            <li>Переход из найма в интеримы: как переупаковать себя</li>
+            <li>Экспертность и позиционирование</li>
+            <li>Резюме, площадки, выход на работодателей</li>
+            <li>Первые 30 дней на проекте</li>
+            <li>Executive search: как усилить свою команду</li>
+            <li>Стратегия в действия и KPI: язык денег с собственником</li>
+            <li>Цифровизация и технологии в работе интерима</li>
+            <li>Управление изменениями (Change Management)</li>
+            <li>Команда и доверие с первого дня</li>
+            <li>Правовые основы интерим-контракта и передача дел</li>
+            <li>Продажи и маркетинг: воронка проектов на 5+ лет</li>
+            <li>Экзамен: защита собственного кейса</li>
+          </ol>
+        </div>
+        <div class="buy">
+          <div class="pricebox"><span class="new">400 000 ₽</span></div>
+          <div class="facts">
+            <p><b>Старт потока:</b> 1 февраля 2027</p>
+            <p><b>Мест в потоке:</b> 15</p>
+            <p><b>Формат:</b> онлайн, только живые тренеры</p>
+          </div>
+          <div class="pay">
+            <img src="assets/qr-pay.png" alt="QR-код для оплаты через СБП" width="132" height="132">
+            <div><b>Оплатить 400 000 ₽ по QR</b><p>Наведите камеру банковского приложения на код. Затем пришлите чек в Telegram <a href="https://t.me/AndreyAFomin" target="_blank" rel="noopener">@AndreyAFomin</a>. Мы запишем Вас в группу и пришлём подтверждение.</p><a class="btn" href="https://qr.nspk.ru/BS1A003C3TJ5BHME8COANC2E58GCIDL2" target="_blank" rel="noopener">Оплатить с телефона</a></div>
+          </div>
+          <p class="small">Заявок больше, чем мест? Первыми выбираем тех, кто оплатил обучение.</p>
+          <p class="small">Вопросы до оплаты? <a href="https://t.me/AndreyAFomin" target="_blank" rel="noopener">Напишите в Telegram</a>.</p>
+          <p class="oferta">Оплата означает принятие условий <a href="https://aim-interims.ru/oferta.pdf" target="_blank" rel="noopener">публичной оферты</a> (PDF).</p>
+        </div>
+      </article>
+
+      <article class="offer" id="consult">
+        <div class="offer-head">
+          <h3>Персональная консультация: интерим-менеджер как следующий шаг в карьере топ-менеджера</h3>
+          <p class="lead">На консультации мы проработаем следующие вопросы:</p>
+          <ul>
+            <li>Понятный ответ: интерим — моё или не моё</li>
+            <li>Определение Вашей экспертности</li>
+            <li>Разбор резюме и подготовка его на интерима</li>
+            <li>Поговорим о том, как обеспечить себя проектами</li>
+          </ul>
+          <p class="lead" style="margin-top:6px">По результатам консультации примем решение о включении Вас в пул АИМ.</p>
+        </div>
+        <div class="buy">
+          <div class="pricebox"><span class="new">40 000 ₽</span></div>
+          <div class="facts">
+          </div>
+          <div class="pay">
+            <img src="assets/qr-pay.png" alt="QR-код для оплаты через СБП" width="132" height="132">
+            <div><b>Оплатить 40 000 ₽ по QR</b><p>Наведите камеру банковского приложения на код. Затем пришлите чек в Telegram <a href="https://t.me/AndreyAFomin" target="_blank" rel="noopener">@AndreyAFomin</a> и мы пришлём предложения по времени встречи.</p><a class="btn" href="https://qr.nspk.ru/BS1A003C3TJ5BHME8COANC2E58GCIDL2" target="_blank" rel="noopener">Оплатить с телефона</a></div>
+          </div>
+          <p class="small">Вопросы до оплаты? <a href="https://t.me/AndreyAFomin" target="_blank" rel="noopener">Напишите в Telegram</a>.</p>
+          <p class="oferta">Оплата означает принятие условий <a href="https://aim-interims.ru/oferta.pdf" target="_blank" rel="noopener">публичной оферты</a> (PDF).</p>
+        </div>
+      </article>
+
+      <article class="offer" id="test">
+        <div class="offer-head">
+          <span class="tag o">Тест бесплатный</span>
+          <h3>Тест «Готов ли я стать интеримом»</h3>
+          <p class="lead">100 вопросов о том, как вы будете действовать в реальных ситуациях интерим-проектов. Сам тест бесплатный. Подробная расшифровка результатов: вы увидите, какие блоки знаний нужно усилить, получите рекомендации, как их усилить, чтобы стать интеримом.</p>
+          <ul>
+            <li>Результат по 10 блокам: от опыта и мандата до договоров и коммуникаций</li>
+            <li>Вердикт о вашей готовности и приоритеты подготовки</li>
+            <li>Разбор ваших ответов: что выбрали вы и какой ответ лучший</li>
+          </ul>
+        </div>
+        <div class="buy">
+          <div class="pricebox"><span class="new">10 000 ₽</span></div>
+          <p class="small">за подробную расшифровку результатов</p>
+          <div class="facts">
+            <p><b>Сам тест:</b> бесплатно</p>
+            <p><b>Расшифровка:</b> платная, доступ сразу после оплаты</p>
+          </div>
+          <a class="btn" href="/test/" target="_blank" rel="noopener">Пройти тест и получить расшифровку</a>
+          <p class="small">Оплата расшифровки банковской картой или через СБП на странице теста.</p>
+          <p class="small">Вопросы до оплаты? <a href="https://t.me/AndreyAFomin" target="_blank" rel="noopener">Напишите в Telegram</a>.</p>
+          <p class="oferta">Оплата означает принятие условий <a href="https://aim-interims.ru/oferta.pdf" target="_blank" rel="noopener">публичной оферты</a> (PDF).</p>
+        </div>
+      </article>
+
+
+      <article class="offer" id="mentor">
+        <div class="offer-head">
+          <h3>Личное менторство собственника бизнеса или руководителя</h3>
+          <p class="lead">Я опытный руководитель, поэтому дорожу своим временем и уважаю ваше. Перед тем как обратиться ко мне за консультацией, давайте определимся, подхожу ли я вам как ментор.</p>
+          <h4 class="prog-h">Моя экспертиза</h4>
+          <ul>
+            <li><span><b style="color:var(--fg)">Систематизация и структура бизнеса.</b> Разберём, как устроена компания: кто за что отвечает, где дублируются функции и где никто не отвечает. Выстроим организационную структуру, которая работает без вашего ежедневного участия, и разведём роли собственника и управляющего.</span></li>
+            <li><span><b style="color:var(--fg)">Поиск внутренних резервов прибыли.</b> Найдём деньги внутри бизнеса, не вкладывая новые: потери в процессах, непрофильные расходы, неэффективные продукты и клиентов, слабые места в ценообразовании. Составим список конкретных шагов по приоритетам.</span></li>
+            <li><span><b style="color:var(--fg)">Жизненные и деловые приоритеты.</b> Разберёмся, что в вашей жизни и бизнесе действительно важно сейчас, а что отнимает время. Определим, на что вы готовы тратить ресурсы, от чего отказаться и как сочетать роль руководителя с личной жизнью.</span></li>
+            <li><span><b style="color:var(--fg)">Стратегия.</b> Сформулируем, куда вы ведёте бизнес на 3–5 лет, какие решения нужно принять сейчас и какие риски заложить. Превратим стратегию в понятный план с этапами и мерой успеха.</span></li>
+          </ul>
+          <p class="small">Я настроен на серьёзную работу. Поэтому точно не смогу помочь тем, кто заинтересован в активных продажах (особенно мне), выборе спутника жизни и гадании на кофейной гуще.</p>
+          <h4 class="prog-h">Работа со мной предполагает</h4>
+          <ul>
+            <li><span><b style="color:var(--fg)">Программу из 10 встреч.</b> Мы обсудим текущую ситуацию и сформулируем главные проблемы, которые вы хотите решить. Наметим пути решения.</span></li>
+            <li><span><b style="color:var(--fg)">Траекторию индивидуального развития.</b> Мы сформируем план вашего развития на ближайшее будущее. Следуя ему, вы пересмотрите своё отношение к существующим процессам и начнёте их менять.</span></li>
+            <li><span><b style="color:var(--fg)">Вашу самостоятельную работу между сессиями.</b> Между встречами вы будете выполнять рекомендации и придерживаться намеченного плана. Иначе наши встречи не имеют смысла.</span></li>
+            <li><span><b style="color:var(--fg)">Программу долгосрочной поддержки.</b> Я предлагаю встречи раз в две недели для обсуждения, чего вам удалось достичь, и корректировки дальнейших действий.</span></li>
+          </ul>
+        </div>
+        <div class="buy">
+          <div class="pricebox"><span class="new">100 000 ₽</span><small>за час. Программа из 10 встреч: 1 000 000 ₽</small></div>
+          <div class="facts">
+            <p><b>Формат:</b> онлайн</p>
+            <p><b>Перед первой встречей:</b> короткий (15–20 минут) разговор по видеосвязи. Проговорим ваши ожидания и мои возможности и договоримся о датах и времени первой сессии</p>
+          </div>
+          <a class="btn" href="https://t.me/AndreyAFomin" target="_blank" rel="noopener">Написать в Telegram</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap foot">
+    <p class="small">Ассоциация Интерим Менеджеров · Школа интерим-менеджеров</p>
+    <p class="small"><a href="https://aim-interims.ru/oferta.pdf">Оферта</a> · <a href="https://aim-interims.ru/privacy/">Политика конфиденциальности</a> · <a href="https://aim-interims.ru/requisites/">Реквизиты</a></p>
+    <p class="small"><a href="https://t.me/AndreyAFomin">@AndreyAFomin</a> · <a href="tel:+79119711519">+7 911 971 15 19</a> · <a href="mailto:af@aiminterims.ru">af@aiminterims.ru</a></p>
+  </div>
+</footer>
+</body>
+</html>

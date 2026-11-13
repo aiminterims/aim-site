@@ -2,11 +2,9 @@
 (function(){
   if(window.__aimMenu)return;window.__aimMenu=1;
   var d=document;
-  var sale=Date.now()<Date.parse("2026-11-14T00:00:00+03:00");
   var items=[
-    sale?["Распродажа","/sale/","sale"]:null,
-    ["Мероприятия","/#events"],["Собственникам","/#owners"],["Школа","/school/"],
-    ["Тест: готов ли я стать интеримом?","/test/"],["О нас","/#about"],["Команда","/#team"],
+    ["Мероприятия","/#events"],["Продукты","/products/"],["Собственникам","/#owners"],["Школа","/school/"],
+    ["О нас","/#about"],["Команда","/#team"],
     ["Партнёры","/#partners"],["Контакты","/#contacts"]
   ].filter(Boolean);
   var css=
@@ -19,12 +17,9 @@
   ".am-pan{display:none;position:fixed;left:0;right:0;bottom:0;top:var(--am-top,70px);z-index:15;background:rgba(28,28,30,.98);overflow:auto;padding:14px max(20px,env(safe-area-inset-right,0px)) 32px max(20px,env(safe-area-inset-left,0px));font-family:Inter,system-ui,-apple-system,'Segoe UI',Arial,sans-serif}"+
   ".am-open .am-pan{display:block}.am-open{overflow:hidden}"+
   ".am-pan a{display:block;color:#f4f2ee;text-decoration:none;font-weight:700;font-size:22px;line-height:1.25;padding:15px 2px;border-bottom:1px solid rgba(244,242,238,.14)}"+
-  ".am-pan a.sale{color:#ff3b30;text-shadow:0 0 10px rgba(255,59,48,.55);animation:amfl 1.3s steps(1,end) infinite}"+
   ".am-pan a.cta{margin-top:22px;border:0;border-radius:999px;background:#E8A33D;color:#1E1E20;text-align:center;font-size:18px;padding:15px 20px}"+
-  "@keyframes amfl{0%,100%{opacity:1}45%{opacity:1}50%{opacity:.3}60%{opacity:1}75%{opacity:.45}85%{opacity:1}}"+
   "@media(max-width:980px){.am-btn{display:flex}.am-bar{display:flex}header.top{flex-wrap:nowrap;gap:10px;padding-right:0}header.top img{height:44px!important;width:auto!important;max-width:46vw}header.top .chip{flex:0 1 auto;font-size:12px;padding:6px 10px;text-align:center}}@media(max-width:640px){header .nav>.btn{display:none}}"+
-  "@media(min-width:981px){.am-pan{display:none!important}.am-open{overflow:auto}}"+
-  "@media(prefers-reduced-motion:reduce){.am-pan a.sale{animation:none}}";
+  "@media(min-width:981px){.am-pan{display:none!important}.am-open{overflow:auto}}";
   function init(){
     var st=d.createElement("style");st.textContent=css;d.head.appendChild(st);
     var b=d.createElement("button");b.className="am-btn";b.type="button";b.setAttribute("aria-label","Меню");b.setAttribute("aria-expanded","false");b.innerHTML="<i></i>";
