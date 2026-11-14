@@ -2,7 +2,7 @@
 (function(){
   if(window.__aimIc)return;window.__aimIc=1;
   var d=document;
-  var LI="";
+  var LI="https://www.linkedin.com/in/andreyafomin/";
   var L=[
     ["Telegram","https://t.me/AndreyAFomin","#229ED9",'<path fill="#fff" d="M9.4 15.6l-.3 3.9c.4 0 .6-.2.8-.4l1.9-1.8 3.9 2.9c.7.4 1.2.2 1.4-.7l2.6-12.2c.3-1.1-.4-1.6-1.1-1.3L4.3 12.1c-1.1.4-1.1 1-.2 1.3l3.9 1.2 9-5.7c.4-.3.8-.1.5.2z"/>'],
     ["Max","https://max.ru/u/f9LHodD0cOLLKaKK0Pz2ioVL4umNqnv5eljhNlv-D9DrnW10TnSXLnm2hx8","linear-gradient(135deg,#2AA7FF,#7A3CF0)",'<path fill="#fff" d="M12 4.5c-4.1 0-7.3 3.1-7.3 7.2 0 1.5.4 2.8 1.2 4-.1 1-.5 2.1-1.2 2.9 1.4 0 2.6-.5 3.5-1.2 1.1.6 2.3.9 3.8.9 4.1 0 7.3-3.1 7.3-7.2S16.100 4.500 12 4.500zm-3.300 8.700V9.200h1.100l1.600 2.400 1.600-2.400h1.100v4h-1.100v-2.300l-1.600 2.300-1.600-2.300v2.300z"/>'],
