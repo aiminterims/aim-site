@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /tools/
+
+Host: https://aim-interims.ru
+Sitemap: https://aim-interims.ru/sitemap.xml
