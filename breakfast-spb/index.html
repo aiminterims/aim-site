@@ -26,6 +26,15 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.08;
 .eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
 section{padding-block:56px}
 /* header */
+header.site{position:sticky;top:0;z-index:20;background:rgba(35,35,37,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(70,70,75,.6)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+.nav img{height:44px;width:auto}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav ul a{color:var(--muted);font-weight:700;font-size:15px;text-decoration:none}
+.nav ul a:hover{color:var(--fg)}
+.nav .btn{padding:10px 20px;font-size:15px}
+@media (max-width:980px){.nav ul{display:none}}
+@media (max-width:640px){.nav .btn{display:none}}
 .top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
 .top img{width:150px;height:auto}
 .chip{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px;white-space:nowrap}
@@ -104,11 +113,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Event", "name": "Бизнес-завтрак АИМ: интерим-менеджмент как следующая ступень карьерной лестницы", "startDate": "2026-11-26T10:30:00+03:00", "endDate": "2026-11-26T12:30:00+03:00", "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "location": {"@type": "Place", "name": "Ресторан Счастье", "address": {"@type": "PostalAddress", "streetAddress": "ул. Рубинштейна, 15-17", "addressLocality": "Санкт-Петербург", "addressCountry": "RU"}}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "RUB", "url": "https://aim-interims.ru/breakfast-spb/", "availability": "https://schema.org/LimitedAvailability"}, "organizer": {"@type": "Organization", "name": "Ассоциация Интерим Менеджеров", "url": "https://aim-interims.ru/"}}</script>
 </head>
 <body>
+<header class="site">
+  <div class="wrap nav">
+    <a href="/" aria-label="На главную"><img src="../assets/logo.png" alt="Ассоциация Интерим Менеджеров"></a>
+    <ul>
+      <li><a href="/#events" aria-current="page" style="color:var(--fg)">Мероприятия</a></li>
+      <li><a href="/products/">Продукты</a></li>
+      <li><a href="/#owners">Собственникам</a></li>
+      <li><a href="/school/">Школа</a></li>
+      <li><a href="/#about">О нас</a></li>
+      <li><a href="/#team">Команда</a></li>
+      <li><a href="/#partners">Партнёры</a></li>
+      <li><a href="/#contacts">Контакты</a></li>
+    </ul>
+    <a class="btn" href="#register">Записаться</a>
+  </div>
+</header>
 <div class="wrap">
-  <header class="top">
-    <a href="/"><img src="../assets/logo.png" alt="Ассоциация Интерим Менеджеров"></a>
-    <span class="chip">Оргвзнос 3500 ₽ · 15 мест</span>
-  </header>
+  <div style="padding-top:18px"><span class="chip">Оргвзнос 3500 ₽ · 15 мест</span></div>
 
   <div class="hero">
     <div>
