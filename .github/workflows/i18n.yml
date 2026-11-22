@@ -1,0 +1,25 @@
+name: Собрать языковые версии сайта
+on:
+  push:
+    paths: ['i18n/**', 'tools/build_i18n.py', 'tools/i18n_core.py', 'index.html', 'school/index.html', 'products/index.html']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: site-build
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install beautifulsoup4
+      - run: python tools/build_i18n.py
+      - name: Сохранить изменения
+        run: |
+          git config user.name "aim-site-bot"
+          git config user.email "bot@aim-interims.ru"
+          git add -A index.html school products en kk uz hy az sitemap.xml
+          git diff --cached --quiet || (git commit -m "Языковые версии сайта обновлены" && git pull --rebase && git push)
