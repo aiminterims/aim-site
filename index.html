@@ -541,5 +541,24 @@ footer img{height:36px;width:auto}
   els.forEach(function(e){io.observe(e)});
 })();
 </script>
+<script>
+(function(){
+  /* Мероприятия: после даты мероприятия (по Москве) кнопка «Записаться» / «Узнать подробнее» убирается автоматически */
+  var M=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+  var p=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Moscow',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()).split('-');
+  var today=Date.UTC(+p[0],+p[1]-1,+p[2]),DAY=864e5;
+  document.querySelectorAll('.ev').forEach(function(c){
+    var pill=c.querySelector('.pill.a'),btn=c.querySelector('.btn');
+    if(!pill||!btn)return;
+    var m=pill.textContent.trim().toLowerCase().match(/(\d{1,2})\s+([а-яё]+)/);
+    if(!m)return;
+    var i=M.findIndex(function(n){return n.indexOf(m[2].slice(0,3))===0});
+    if(i<0)return;
+    var y=+p[0],d=Date.UTC(y,i,+m[1]);
+    if(today-d>200*DAY)d=Date.UTC(y+1,i,+m[1]);else if(d-today>200*DAY)d=Date.UTC(y-1,i,+m[1]);
+    if(d<today)btn.remove();
+  });
+})();
+</script>
 </body>
 </html>
