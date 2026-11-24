@@ -66,6 +66,8 @@ def rewrite_url(v, base, lang):
 
 def translate_json(o, tr, lang, L):
     if isinstance(o, dict):
+        if '@graph' in o:
+            o = dict(o); o['@graph'] = [n for n in o['@graph'] if n.get('@type') not in ('FAQPage', 'Service', 'BreadcrumbList', 'ItemList')]
         return {k: translate_json(v, tr, lang, L) for k, v in o.items()}
     if isinstance(o, list): return [translate_json(v, tr, lang, L) for v in o]
     if isinstance(o, str):
@@ -81,6 +83,7 @@ def build_page(src, base, lang, tr):
     L = LANGS[lang]
     html = open(os.path.join(ROOT, src), encoding='utf-8').read()
     html = html.replace('url(assets/', 'url(/assets/')
+    html = re.sub(r'<section id="faq">.*?</section>\n', '', html, flags=re.S)
     html = re.sub(re.escape(HREFLANG) + r'.*?<!--/hreflang-->', '', html, flags=re.S)
     soup, us = all_units(html)
     for kind, node, attr, key in us:
